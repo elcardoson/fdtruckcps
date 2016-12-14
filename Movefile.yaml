@@ -1,0 +1,70 @@
+# ambiente local
+local:
+  vhost: "http://localhost:8888/foodtruckcampinas.com/" # Url do seu ambiente local
+  wordpress_path: "/Users/elcardoson/github-personal/foodtruckcampinas.com/" # Caminho do absoluto do seu projeto
+
+  database:
+    name: "wp_foodtruckcampinas" # banco de dados local
+    user: "root" # usuário do banco de dados
+    password: "35245227" # senha do banco de dados
+    host: "127.0.0.1" # host do banco de dados
+    port: 8889
+    mysqldump_options: "--default-character-set=utf8" # Only available if using SSH
+
+# ambiente de homologação
+staging:
+  vhost: "http://www.detudoumpouco.xyz/"
+  wordpress_path: "/var/www/vhosts/foodtruckcampinas.com/"
+
+  database:
+    name: "foodtruckcampinas"
+    user: "root"
+    password: "35245227"
+    host: "localhost"
+    port: 3306
+    mysqldump_options: "--default-character-set=utf8" # Only available if using SSH
+
+  exclude:
+    - ".git/"
+    - ".gitignore"
+    - ".sass-cache/"
+    - "bin/"
+    - "tmp/*"
+    - "Gemfile*"
+    - "Movefile"
+    - "wp-config.php"
+    - "wp-content/*.sql"
+
+  ssh:
+    host: "ec2-35-161-125-129.us-west-2.compute.amazonaws.com"
+    user: "ec2-user"
+    port: 22
+
+
+# ambiente de produção
+production:
+  vhost: "http://example.com"
+  wordpress_path: "/var/www/seu-site"
+
+  database:
+    name: "database_name"
+    user: "user"
+    password: "password"
+    host: "host"
+    mysqldump_options: "--default-character-set=utf8" # Only available if using SSH
+
+  exclude:
+    - ".git/"
+    - ".gitignore"
+    - ".sass-cache/"
+    - "bin/"
+    - "tmp/*"
+    - "Gemfile*"
+    - "Movefile"
+    - "wp-config.php"
+    - "wp-content/*.sql"
+
+  ssh:
+    host: "host"
+    user: "user"
+    password: "password" # A senha é opcional, você pode usar chaves SSH, se preferir

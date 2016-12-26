@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-12-04 18:28:23+0000\n"
+"PO-Revision-Date: 2016-12-24 20:21:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -956,7 +956,7 @@ msgstr "Arquivo zip do tema"
 msgid "Attach to existing content"
 msgstr "Anexar ao conteúdo existente"
 
-#: wp-admin/includes/post.php:1454
+#: wp-admin/includes/post.php:1425
 msgid "Click the image to edit or update"
 msgstr "Clicar sobre a imagem para editar ou atualizar."
 
@@ -1519,11 +1519,11 @@ msgstr "Obter versão %s"
 msgid "Toggle panel: %s"
 msgstr "Alternar painel: %s"
 
-#: wp-admin/includes/post.php:1651
+#: wp-admin/includes/post.php:1622
 msgid "Saving revision&hellip;"
 msgstr "Salvando revisão&hellip;"
 
-#: wp-admin/includes/post.php:1380
+#: wp-admin/includes/post.php:1351
 msgid "Edit permalink"
 msgstr "Editar links permanentes"
 
@@ -2884,7 +2884,7 @@ msgstr "Bem-vindo (a)"
 #. translators: %s is a placeholder that must come at the start of the URL.
 #: wp-admin/options-permalink.php:216
 msgid "If you like, you may enter custom structures for your category and tag URLs here. For example, using <code>topics</code> as your category base would make your category links like <code>%s/topics/uncategorized/</code>. If you leave these blank the defaults will be used."
-msgstr "Se preferir, você pode digitar estruturas personalizadas para os URLs de suas categorias e tags. Por exemplo, usando <code>topicos</code> como base das suas categorias os links se pareceriam com <code>%s/topicos/sem-categoria/</code>. Se deixá-los em branco os padrões serão usados."
+msgstr "Se preferir, você pode digitar estruturas personalizadas para os URLs de suas categorias e tags. Por exemplo, usando <code>topicos</code> como base das suas categorias, os links se pareceriam com <code>%s/topicos/sem-categoria/</code>. Se deixá-los em branco, os padrões serão usados."
 
 #: wp-admin/credits.php:121
 msgid "Release Lead"
@@ -3557,11 +3557,11 @@ msgstr "Traduções"
 msgid "Future security updates will be applied automatically."
 msgstr "Atualizações futuras de segurança serão feitas automaticamente."
 
-#: wp-admin/includes/post.php:1614
+#: wp-admin/includes/post.php:1585
 msgid "If you take over, %s will be blocked from continuing to edit."
 msgstr "Se você assumir o controle, %s será impedido de continuar editando."
 
-#: wp-admin/includes/post.php:1612
+#: wp-admin/includes/post.php:1583
 msgid "This content is currently locked."
 msgstr "Atualmente este conteúdo está travado."
 
@@ -4137,7 +4137,7 @@ msgstr "Nesta tela você pode:"
 msgid "This screen is used for managing your custom navigation menus."
 msgstr "Esta tela é usada para gerenciar seus menus de navegação personalizados."
 
-#: wp-admin/includes/post.php:1652
+#: wp-admin/includes/post.php:1623
 msgid "Your latest changes were saved as a revision."
 msgstr "Suas últimas alterações foram salvas como uma revisão."
 
@@ -4232,7 +4232,7 @@ msgstr "Rascunho criado em %1$s às %2$s "
 msgid "You cannot move this item to the Trash. %s is currently editing."
 msgstr "Sem permissão para mover este item para a lixeira. %s está editando agora."
 
-#: wp-admin/includes/post.php:1637
+#: wp-admin/includes/post.php:1608
 msgid "Take over"
 msgstr "Controlar"
 
@@ -5335,7 +5335,7 @@ msgstr "<strong>Cuidado:</strong>Não é recomendado fazer alterações em plugi
 
 #: wp-admin/options-discussion.php:175
 msgid "An avatar is an image that follows you from weblog to weblog appearing beside your name when you comment on avatar enabled sites. Here you can enable the display of avatars for people who comment on your site."
-msgstr "Um avatar é uma imagem que segue você de blog em blog, aparecendo ao lado de seu nome quando você comentar em sites com o recurso de avatar ativado. Aqui você pode ativar a exibição de avatares para as pessoas que comentam em seu site.,"
+msgstr "Um avatar é uma imagem que segue você de blog em blog, aparecendo ao lado de seu nome quando você comentar em sites com o recurso de avatar ativado. Aqui você pode ativar a exibição de avatares para as pessoas que comentam em seu site."
 
 #: wp-admin/user-new.php:321
 msgid "Enter the email address or username of an existing user on this network to invite them to this site. That person will be sent an email asking them to confirm the invite."
@@ -7215,7 +7215,7 @@ msgstr "Remover usuários do site"
 
 #: wp-admin/tools.php:42
 msgid "Use Press This to clip text, images and videos from any web page. Then edit and add more straight from Press This before you save or publish it in a post on your site."
-msgstr "Use o Publique isso para copiar textos, imagens e vídeos de qualquer página da web. Em seguida edite e adicione mais direto do Publique isso antes de salvar ou publicá-los em um post de seu site."
+msgstr "Use o \"Publique isso\" para copiar textos, imagens e vídeos de qualquer página da web. Em seguida, edite e adicione mais conteúdo direto do \"Publique isso\" antes de salvá-los ou publicá-los em um post de seu site."
 
 #: wp-admin/user-edit.php:355 wp-admin/user-edit.php:357
 msgid "&mdash; No role for this site &mdash;"
@@ -7702,7 +7702,7 @@ msgstr "Widgets disponíveis"
 msgid "Error in displaying the widget settings form."
 msgstr "Erro ao mostrar o formulário de configurações do widget."
 
-#: wp-admin/includes/misc.php:882 wp-admin/includes/post.php:1814
+#: wp-admin/includes/misc.php:882 wp-admin/includes/post.php:1785
 #: wp-admin/widgets.php:340
 msgid "Error while saving."
 msgstr "Erro ao salvar."
@@ -8040,7 +8040,7 @@ msgid "You can&#8217;t edit this item because it is in the Trash. Please restore
 msgstr "Sem permissão para editar este item pois ele está na lixeira. Restaure-o e tente novamente."
 
 #: wp-admin/async-upload.php:57 wp-admin/edit-tags.php:154
-#: wp-admin/includes/post.php:1820 wp-admin/media-upload.php:46
+#: wp-admin/includes/post.php:1791 wp-admin/media-upload.php:46
 #: wp-admin/post.php:117 wp-admin/term.php:38
 msgid "Sorry, you are not allowed to edit this item."
 msgstr "Sem permissão para editar este item."
@@ -9180,11 +9180,11 @@ msgstr "Só mais um site %s"
 msgid "Just another WordPress site"
 msgstr "Só mais um site WordPress"
 
-#: wp-admin/includes/post.php:1365
+#: wp-admin/includes/post.php:1336
 msgid "Change Permalinks"
 msgstr "Alterar links permanentes"
 
-#: wp-admin/includes/post.php:1354 wp-admin/includes/post.php:1377
+#: wp-admin/includes/post.php:1325 wp-admin/includes/post.php:1348
 msgid "Permalink:"
 msgstr "Link Permanente"
 
@@ -10837,7 +10837,7 @@ msgid "Sorry, you are not allowed to edit comments on this post."
 msgstr "Sem permissão para editar os comentários deste post."
 
 #: wp-admin/comment.php:61 wp-admin/comment.php:255
-#: wp-admin/includes/post.php:1561
+#: wp-admin/includes/post.php:1532
 msgid "Go back"
 msgstr "Voltar"
 

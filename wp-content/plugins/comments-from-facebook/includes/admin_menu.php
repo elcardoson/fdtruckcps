@@ -160,16 +160,16 @@ class wpdevart_comment_admin_menu{
                                     <td>
                                         <div class="pea_admin_box">
                                         
-                                            <p>Here is the short user manual that should help you to insert Facebook Comments Box into your website.</p>
+                                            <p>Here's the short user manual that should help you to insert Facebook Comments Box into your website.</p>
                                            <p style="font-weight:bolder"><span style="color:red">APP ID</span> - you can create your App Id on this page - <a style="color:#0073aa" target="_blank" href="https://developers.facebook.com/apps">https://developers.facebook.com/apps.</a>
 Also, here is another tutorial(from other source) of creating App Id, you can check it - <a style="color:#0073aa" target="_blank" href="https://help.yahoo.com/kb/SLN18861.html">https://help.yahoo.com/kb/SLN18861.html</a>.</p>
                                             <p>If you select the option "Display comments on"  Home, Post, Page  then Facebook Comments box will be added on every page/post of your website. </p> 
-                                            <p>Also, you can insert the Facebook Comments box manually in any page, post or even in Php code by using the shortcode, you can disable comments on single pages or posts as well.</p>
+                                            <p>Also, you can insert the Facebook Comments box manually in any page, post or even in Php code using plugin shortcode. You can disable comments on single pages or posts as well.</p>
                                             
                                             <p><strong>Here's an example of using the Facebook comments shortcode in posts, pages:</strong></p>
                                             <p><code>[wpdevart_facebook_comment curent_url="http://developers.facebook.com/docs/plugins/comments/" title_text="Facebook Comment" order_type="social" title_text_color="#000000" title_text_font_size="22" title_text_font_famely="monospace" title_text_position="left" width="100%" bg_color="#d4d4d4" animation_effect="random"  count_of_comments="2" ]</code></p>
                                             
-                                            <p><strong>Here's an example of using the Facebook comments shortcode in PHP code:</strong></p>
+                                            <p><strong>Here is an example of using the Facebook comments box shortcode in PHP code:</strong></p>
                                             <p><code>&lt;?php echo do_shortcode('[wpdevart_facebook_comment curent_url="http://developers.facebook.com/docs/plugins/comments/" order_type="social" title_text="Facebook Comment" title_text_color="#000000" title_text_font_size="22" title_text_font_famely="monospace" title_text_position="left" width="100%" bg_color="#d4d4d4" animation_effect="random"  count_of_comments="3" ]'); ?&gt;</code></p>
                                             
                                             <p><strong>Here are explanation of Facebook comments shortcode attributes.</strong></p>

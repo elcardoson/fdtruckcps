@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-12-04 21:26:34+0000\n"
+"PO-Revision-Date: 2016-12-26 14:54:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4388,10 +4388,6 @@ msgstr "Publicações mais novas"
 msgid "Older posts"
 msgstr "Publicações mais antigas"
 
-#: wp-includes/pluggable.php:1461
-msgid "You can see all comments on this post here:"
-msgstr "Vocẽ pode ver todos os comentários para este post em:"
-
 #: wp-includes/pluggable.php:1450
 msgid "You can see all pingbacks on this post here:"
 msgstr "Você pode ver todos os pingbacks para este post aqui:"
@@ -4423,6 +4419,10 @@ msgstr "Disponível"
 msgctxt "verb"
 msgid "Trash"
 msgstr "Colocar na lixeira"
+
+#: wp-includes/pluggable.php:1461
+msgid "You can see all comments on this post here:"
+msgstr "Você pode ver todos os comentários para este post em:"
 
 #: wp-includes/general-template.php:1497
 msgctxt "post format archive title"

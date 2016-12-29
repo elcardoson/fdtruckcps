@@ -1,16 +1,16 @@
-﻿msgid ""
+msgid ""
 msgstr ""
 "Project-Id-Version: Ultimate Member\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-29 22:34+0200\n"
-"PO-Revision-Date: 2015-08-13 19:17+0100\n"
+"PO-Revision-Date: 2016-12-29 12:13-0200\n"
 "Last-Translator: Fudeisson <fudeisson@yahoo.com.br>\n"
 "Language-Team: Fudeisson Team <fudeisson@yahoo.com.br>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -42,7 +42,9 @@ msgstr "Salvar alterações"
 msgid "Access Control"
 msgstr "Controle de acesso"
 
-#: admin/core/um-admin-actions-ajax.php:11 admin/core/um-admin-actions-fields.php:11 admin/core/um-admin-actions-modal.php:98
+#: admin/core/um-admin-actions-ajax.php:11
+#: admin/core/um-admin-actions-fields.php:11
+#: admin/core/um-admin-actions-modal.php:98
 msgid "Please login as administrator"
 msgstr "Identifique-se como administrador"
 
@@ -82,7 +84,8 @@ msgstr "Campos personalizados"
 msgid "You did not create any custom fields"
 msgstr "Você não criou todos os campos personalizados"
 
-#: admin/core/um-admin-actions-modal.php:221 admin/core/um-admin-actions-modal.php:291
+#: admin/core/um-admin-actions-modal.php:221
+#: admin/core/um-admin-actions-modal.php:291
 msgid "This field type is not setup correcty."
 msgstr "Este tipo de campo não está configurado correcty."
 
@@ -91,15 +94,18 @@ msgstr "Este tipo de campo não está configurado correcty."
 msgid "Duplicate of %s"
 msgstr "Duplicar de %s"
 
-#: admin/core/um-admin-builder.php:92 admin/core/um-admin-builder.php:158 admin/core/um-admin-dragdrop.php:140
+#: admin/core/um-admin-builder.php:92 admin/core/um-admin-builder.php:158
+#: admin/core/um-admin-dragdrop.php:140
 msgid "Add Row"
 msgstr "Adicionar linha"
 
-#: admin/core/um-admin-builder.php:93 admin/core/um-admin-builder.php:159 admin/core/um-admin-dragdrop.php:141
+#: admin/core/um-admin-builder.php:93 admin/core/um-admin-builder.php:159
+#: admin/core/um-admin-dragdrop.php:141
 msgid "Edit Row"
 msgstr "Editar Row"
 
-#: admin/core/um-admin-builder.php:162 admin/core/um-admin-dragdrop.php:143 admin/core/um-admin-dragdrop.php:157 admin/core/um-admin-dragdrop.php:182
+#: admin/core/um-admin-builder.php:162 admin/core/um-admin-dragdrop.php:143
+#: admin/core/um-admin-dragdrop.php:157 admin/core/um-admin-dragdrop.php:182
 msgid "Delete Row"
 msgstr "Excluir linha"
 
@@ -119,7 +125,8 @@ msgstr "Título"
 msgid "Type"
 msgstr "Tipo"
 
-#: admin/core/um-admin-columns.php:50 admin/core/um-admin-columns.php:67 admin/core/um-admin-metabox.php:256 admin/core/um-admin-metabox.php:296
+#: admin/core/um-admin-columns.php:50 admin/core/um-admin-columns.php:67
+#: admin/core/um-admin-metabox.php:256 admin/core/um-admin-metabox.php:296
 msgid "Shortcode"
 msgstr "Código curto"
 
@@ -168,7 +175,8 @@ msgstr "Últimas do blog"
 msgid "Purge Temp Files"
 msgstr "Remover Arquivos Temporários"
 
-#: admin/core/um-admin-dashboard.php:127 admin/core/um-admin-dashboard.php:129 admin/core/um-admin-dashboard.php:131
+#: admin/core/um-admin-dashboard.php:127 admin/core/um-admin-dashboard.php:129
+#: admin/core/um-admin-dashboard.php:131
 msgid "Language"
 msgstr "Idioma"
 
@@ -236,11 +244,19 @@ msgstr "Cargo programado."
 msgid "Role draft updated."
 msgstr "Projecto de Cargo atualizado."
 
-#: admin/core/um-admin-metabox.php:130 core/um-builtin.php:882 core/um-builtin.php:897 um-config.php:77 um-config.php:87 um-config.php:97 um-config.php:258 um-config.php:268 um-config.php:278 um-config.php:288 um-config.php:320 um-config.php:351 um-config.php:1143
+#: admin/core/um-admin-metabox.php:130 core/um-builtin.php:882
+#: core/um-builtin.php:897 um-config.php:77 um-config.php:87 um-config.php:97
+#: um-config.php:258 um-config.php:268 um-config.php:278 um-config.php:288
+#: um-config.php:320 um-config.php:351 um-config.php:1143
 msgid "Yes"
 msgstr "Sim"
 
-#: admin/core/um-admin-metabox.php:131 admin/core/um-admin-roles.php:48 core/um-actions-account.php:20 core/um-builtin.php:881 core/um-builtin.php:882 core/um-builtin.php:896 core/um-builtin.php:897 um-config.php:78 um-config.php:88 um-config.php:98 um-config.php:259 um-config.php:269 um-config.php:279 um-config.php:289 um-config.php:321 um-config.php:352 um-config.php:1144
+#: admin/core/um-admin-metabox.php:131 admin/core/um-admin-roles.php:48
+#: core/um-actions-account.php:20 core/um-builtin.php:881
+#: core/um-builtin.php:882 core/um-builtin.php:896 core/um-builtin.php:897
+#: um-config.php:78 um-config.php:88 um-config.php:98 um-config.php:259
+#: um-config.php:269 um-config.php:279 um-config.php:289 um-config.php:321
+#: um-config.php:352 um-config.php:1144
 msgid "No"
 msgstr "Não"
 
@@ -308,11 +324,16 @@ msgstr "Selecionar Tipo de formulário"
 msgid "Form Builder"
 msgstr "Form Builder"
 
-#: admin/core/um-admin-metabox.php:298 admin/core/um-admin-metabox.php:303 admin/core/um-admin-metabox.php:309
+#: admin/core/um-admin-metabox.php:298 admin/core/um-admin-metabox.php:303
+#: admin/core/um-admin-metabox.php:309
 msgid "Customize this form"
 msgstr "Personalize este formulário"
 
-#: admin/core/um-admin-metabox.php:299 admin/core/um-admin-metabox.php:305 admin/core/um-admin-metabox.php:311 admin/templates/form/login_css.php:4 admin/templates/form/profile_css.php:4 admin/templates/form/register_css.php:4 um-config.php:1757 um-config.php:1763
+#: admin/core/um-admin-metabox.php:299 admin/core/um-admin-metabox.php:305
+#: admin/core/um-admin-metabox.php:311 admin/templates/form/login_css.php:4
+#: admin/templates/form/profile_css.php:4
+#: admin/templates/form/register_css.php:4 um-config.php:1757
+#: um-config.php:1763
 msgid "Custom CSS"
 msgstr "Custom CSS"
 
@@ -409,7 +430,8 @@ msgstr "Super administradores não podem ser modificadas."
 msgid "Other users have been updated."
 msgstr "Outros usuários não foram atualizados."
 
-#: admin/core/um-admin-redux.php:59 admin/core/um-admin-redux.php:60 index.php:51
+#: admin/core/um-admin-redux.php:59 admin/core/um-admin-redux.php:60
+#: index.php:51
 msgid "Settings"
 msgstr "Definições"
 
@@ -545,11 +567,13 @@ msgstr "Conteúdo acessível para desconectado Usuários"
 msgid "Content accessible to Logged In Users"
 msgstr "Conteúdo acessível para usuários logados"
 
-#: admin/templates/access/settings.php:24 admin/templates/access/settings.php:50
+#: admin/templates/access/settings.php:24
+#: admin/templates/access/settings.php:50
 msgid "Redirect URL"
 msgstr "Redirecionar URL"
 
-#: admin/templates/access/settings.php:24 admin/templates/access/settings.php:50
+#: admin/templates/access/settings.php:24
+#: admin/templates/access/settings.php:50
 msgid "This is the URL that user is redirected to If he is not permitted to view this content"
 msgstr "Esta é a URL que o usuário é redirecionado para Se ele não tem permissão para visualizar este conteúdo"
 
@@ -582,7 +606,7 @@ msgstr "Download de Tradução"
 #: admin/templates/dashboard/language-update.php:1
 #, php-format
 msgid "You are currently using Ultimate Member in your language: <strong>%1$s (%2$s)</strong>."
-msgstr "Você está usando final Membro na sua língua: <strong> %1$s ( %2$s ) </ strong>."
+msgstr "Você está usando o Ultimate Member na sua língua: <strong> %1$s ( %2$s ) </ strong>."
 
 #: admin/templates/dashboard/language-update.php:3
 msgid "Force Update Translation"
@@ -600,7 +624,10 @@ msgstr "Revisão pendente"
 msgid "Awaiting E-mail Confirmation"
 msgstr "Aguardando confirmação por e-mail"
 
-#: admin/templates/directory/appearance.php:3 admin/templates/form/login_customize.php:14 admin/templates/form/profile_customize.php:26 admin/templates/form/register_customize.php:26
+#: admin/templates/directory/appearance.php:3
+#: admin/templates/form/login_customize.php:14
+#: admin/templates/form/profile_customize.php:26
+#: admin/templates/form/register_customize.php:26
 msgid "Template"
 msgstr "Modelo"
 
@@ -724,7 +751,8 @@ msgstr "Resultados Texto"
 msgid "Customize the search result text . e.g. Found 3,000 Members. Leave this blank to not show result text"
 msgstr "Personalize o texto resultado da pesquisa. Encontrado por exemplo, 3.000 membros. Deixe em branco para não mostrar texto resultado"
 
-#: admin/templates/directory/search.php:83 core/um-setup.php:49 core/um-setup.php:162
+#: admin/templates/directory/search.php:83 core/um-setup.php:49
+#: core/um-setup.php:162
 msgid "{total_users} Members"
 msgstr "{} TOTAL_USERS deputados"
 
@@ -736,7 +764,8 @@ msgstr "Único resultado Texto"
 msgid "Same as above but in case of 1 user found only"
 msgstr "O mesmo que acima, mas no caso de um usuário só encontrado"
 
-#: admin/templates/directory/search.php:92 core/um-setup.php:50 core/um-setup.php:163
+#: admin/templates/directory/search.php:92 core/um-setup.php:50
+#: core/um-setup.php:163
 msgid "{total_users} Member"
 msgstr "{} TOTAL_USERS Estados-"
 
@@ -756,59 +785,86 @@ msgstr "Live Preview"
 msgid "Add Master Row"
 msgstr "Adicionar Mestre Row"
 
-#: admin/templates/form/login_css.php:4 admin/templates/form/profile_css.php:4 admin/templates/form/register_css.php:4
+#: admin/templates/form/login_css.php:4 admin/templates/form/profile_css.php:4
+#: admin/templates/form/register_css.php:4
 msgid "Enter custom css that will be applied to this form only"
 msgstr "Digite css personalizado que será aplicada a esta forma única"
 
-#: admin/templates/form/login_customize.php:4 admin/templates/form/profile_customize.php:4 admin/templates/form/register_customize.php:4
+#: admin/templates/form/login_customize.php:4
+#: admin/templates/form/profile_customize.php:4
+#: admin/templates/form/register_customize.php:4
 msgid "Use global settings?"
 msgstr "Usar configurações globais?"
 
-#: admin/templates/form/login_customize.php:26 admin/templates/form/profile_customize.php:38 admin/templates/form/register_customize.php:38
+#: admin/templates/form/login_customize.php:26
+#: admin/templates/form/profile_customize.php:38
+#: admin/templates/form/register_customize.php:38
 msgid "Max. Width (px)"
 msgstr "Max. Largura (px)"
 
-#: admin/templates/form/login_customize.php:30 admin/templates/form/profile_customize.php:46 admin/templates/form/register_customize.php:42
+#: admin/templates/form/login_customize.php:30
+#: admin/templates/form/profile_customize.php:46
+#: admin/templates/form/register_customize.php:42
 msgid "Alignment"
 msgstr "Alinhamento"
 
-#: admin/templates/form/login_customize.php:40 admin/templates/form/profile_customize.php:56 admin/templates/form/register_customize.php:52
+#: admin/templates/form/login_customize.php:40
+#: admin/templates/form/profile_customize.php:56
+#: admin/templates/form/register_customize.php:52
 msgid "Field Icons"
 msgstr "Ícones de campo"
 
-#: admin/templates/form/login_customize.php:50 admin/templates/form/profile_customize.php:66 admin/templates/form/register_customize.php:62
+#: admin/templates/form/login_customize.php:50
+#: admin/templates/form/profile_customize.php:66
+#: admin/templates/form/register_customize.php:62
 msgid "Primary Button Text"
 msgstr "Botão primário Texto"
 
-#: admin/templates/form/login_customize.php:54 admin/templates/form/profile_customize.php:70 admin/templates/form/register_customize.php:66
+#: admin/templates/form/login_customize.php:54
+#: admin/templates/form/profile_customize.php:70
+#: admin/templates/form/register_customize.php:66
 msgid "Primary Button Color"
 msgstr "Botão Cor Primária"
 
-#: admin/templates/form/login_customize.php:58 admin/templates/form/profile_customize.php:74 admin/templates/form/register_customize.php:70
+#: admin/templates/form/login_customize.php:58
+#: admin/templates/form/profile_customize.php:74
+#: admin/templates/form/register_customize.php:70
 msgid "Primary Button Hover Color"
 msgstr "Botão primário Hover Cor"
 
-#: admin/templates/form/login_customize.php:62 admin/templates/form/profile_customize.php:78 admin/templates/form/register_customize.php:74
+#: admin/templates/form/login_customize.php:62
+#: admin/templates/form/profile_customize.php:78
+#: admin/templates/form/register_customize.php:74
 msgid "Primary Button Text Color"
 msgstr "Botão Cor Primária Texto"
 
-#: admin/templates/form/login_customize.php:67 admin/templates/form/profile_customize.php:83 admin/templates/form/register_customize.php:79
+#: admin/templates/form/login_customize.php:67
+#: admin/templates/form/profile_customize.php:83
+#: admin/templates/form/register_customize.php:79
 msgid "Show Secondary Button"
 msgstr "Mostrar botão secundário"
 
-#: admin/templates/form/login_customize.php:75 admin/templates/form/profile_customize.php:91 admin/templates/form/register_customize.php:87
+#: admin/templates/form/login_customize.php:75
+#: admin/templates/form/profile_customize.php:91
+#: admin/templates/form/register_customize.php:87
 msgid "Secondary Button Text"
 msgstr "Texto do botão secundário"
 
-#: admin/templates/form/login_customize.php:79 admin/templates/form/profile_customize.php:95 admin/templates/form/register_customize.php:91
+#: admin/templates/form/login_customize.php:79
+#: admin/templates/form/profile_customize.php:95
+#: admin/templates/form/register_customize.php:91
 msgid "Secondary Button Color"
 msgstr "Cor Secundária Botão"
 
-#: admin/templates/form/login_customize.php:83 admin/templates/form/profile_customize.php:99 admin/templates/form/register_customize.php:95
+#: admin/templates/form/login_customize.php:83
+#: admin/templates/form/profile_customize.php:99
+#: admin/templates/form/register_customize.php:95
 msgid "Secondary Button Hover Color"
 msgstr "Botão secundário Hover Cor"
 
-#: admin/templates/form/login_customize.php:87 admin/templates/form/profile_customize.php:103 admin/templates/form/register_customize.php:99
+#: admin/templates/form/login_customize.php:87
+#: admin/templates/form/profile_customize.php:103
+#: admin/templates/form/register_customize.php:99
 msgid "Secondary Button Text Color"
 msgstr "Botão Secundário Cor do texto"
 
@@ -828,7 +884,10 @@ msgstr "Redirecionamento após o login"
 msgid "Default"
 msgstr "Padrão"
 
-#: admin/templates/form/login_settings.php:16 admin/templates/role/delete.php:18 admin/templates/role/login.php:20 admin/templates/role/logout.php:18 admin/templates/role/register.php:37 admin/templates/role/register.php:76 admin/templates/role/register.php:124
+#: admin/templates/form/login_settings.php:16
+#: admin/templates/role/delete.php:18 admin/templates/role/login.php:20
+#: admin/templates/role/logout.php:18 admin/templates/role/register.php:37
+#: admin/templates/role/register.php:76 admin/templates/role/register.php:124
 msgid "Set Custom Redirect URL"
 msgstr "Definir URL Redirect Personalizado"
 
@@ -936,7 +995,8 @@ msgstr "Mudar para nenhum se você quer personalizar este configurações de for
 msgid "Assign role to form"
 msgstr "Assign role to form"
 
-#: admin/templates/form/register_customize.php:42 um-config.php:1198 um-config.php:1568 um-config.php:1670
+#: admin/templates/form/register_customize.php:42 um-config.php:1198
+#: um-config.php:1568 um-config.php:1670
 msgid "The shortcode is centered by default unless you specify otherwise here"
 msgstr "O shortcode é centrada por padrão, a menos que você especifique o contrário aqui"
 
@@ -944,7 +1004,8 @@ msgstr "O shortcode é centrada por padrão, a menos que você especifique o con
 msgid "Whether to show field icons and where to show them relative to the field"
 msgstr "Se deve mostrar ícones de campo e para mostrar onde eles relativamente ao campo"
 
-#: admin/templates/form/register_customize.php:62 admin/templates/form/register_customize.php:87
+#: admin/templates/form/register_customize.php:62
+#: admin/templates/form/register_customize.php:87
 msgid "Customize the button text"
 msgstr "Personalize o texto do botão"
 
@@ -976,11 +1037,18 @@ msgstr "Substituir o botão secundário cor de texto padrão"
 msgid "Edit Field"
 msgstr "Editar campo"
 
-#: admin/templates/modal/dynamic_edit_field.php:14 admin/templates/modal/dynamic_edit_row.php:14
+#: admin/templates/modal/dynamic_edit_field.php:14
+#: admin/templates/modal/dynamic_edit_row.php:14
 msgid "Update"
 msgstr "Atualizar"
 
-#: admin/templates/modal/dynamic_edit_field.php:15 admin/templates/modal/dynamic_edit_row.php:15 admin/templates/modal/dynamic_new_divider.php:15 admin/templates/modal/dynamic_new_field.php:15 admin/templates/modal/dynamic_new_group.php:15 core/um-actions-profile.php:202 core/um-actions-profile.php:316 core/um-actions-profile.php:326 core/um-actions-profile.php:464
+#: admin/templates/modal/dynamic_edit_field.php:15
+#: admin/templates/modal/dynamic_edit_row.php:15
+#: admin/templates/modal/dynamic_new_divider.php:15
+#: admin/templates/modal/dynamic_new_field.php:15
+#: admin/templates/modal/dynamic_new_group.php:15
+#: core/um-actions-profile.php:202 core/um-actions-profile.php:316
+#: core/um-actions-profile.php:326 core/um-actions-profile.php:464
 #: core/um-fields.php:1280 core/um-fields.php:1365
 msgid "Cancel"
 msgstr "Cancelar"
@@ -1001,7 +1069,9 @@ msgstr "Continuar editando"
 msgid "Add a New Divider"
 msgstr "Adicionar um novo divisor"
 
-#: admin/templates/modal/dynamic_new_divider.php:14 admin/templates/modal/dynamic_new_field.php:14 admin/templates/modal/dynamic_new_group.php:14
+#: admin/templates/modal/dynamic_new_divider.php:14
+#: admin/templates/modal/dynamic_new_field.php:14
+#: admin/templates/modal/dynamic_new_group.php:14
 msgid "Add"
 msgstr "Adicionar"
 
@@ -1142,7 +1212,8 @@ msgstr "Selecione o que acontece quando um usuário com esse cargo conecta-se no
 msgid "Redirect to profile"
 msgstr "Redirecionar para o perfil"
 
-#: admin/templates/role/login.php:11 admin/templates/role/register.php:30 admin/templates/role/register.php:60 admin/templates/role/register.php:108
+#: admin/templates/role/login.php:11 admin/templates/role/register.php:30
+#: admin/templates/role/register.php:60 admin/templates/role/register.php:108
 msgid "Redirect to URL"
 msgstr "Redirecionar para URL"
 
@@ -1222,11 +1293,13 @@ msgstr "Exigir-mail de ativação"
 msgid "Require Admin Review"
 msgstr "Exigir avaliação de Admin"
 
-#: admin/templates/role/register.php:25 admin/templates/role/register.php:53 admin/templates/role/register.php:101
+#: admin/templates/role/register.php:25 admin/templates/role/register.php:53
+#: admin/templates/role/register.php:101
 msgid "Action to be taken after registration"
 msgstr "Ação a ser tomada após o registro"
 
-#: admin/templates/role/register.php:25 admin/templates/role/register.php:53 admin/templates/role/register.php:101
+#: admin/templates/role/register.php:25 admin/templates/role/register.php:53
+#: admin/templates/role/register.php:101
 msgid "Select what action is taken after a person registers on your site. Depending on the status you can redirect them to their profile, a custom url or show a custom message"
 msgstr "Selecione qual ação é tomada depois que uma pessoa registra em seu site. Dependendo do status, você pode redirecioná-los ao seu perfil, um URL personalizado ou mostrar uma mensagem personalizada"
 
@@ -1274,7 +1347,10 @@ msgstr "Privacidade"
 msgid "Notifications"
 msgstr "Notificações"
 
-#: core/um-account.php:37 core/um-actions-account.php:31 core/um-actions-account.php:66 core/um-actions-account.php:124 core/um-actions-account.php:172 core/um-builtin.php:888 core/um-builtin.php:891
+#: core/um-account.php:37 core/um-actions-account.php:31
+#: core/um-actions-account.php:66 core/um-actions-account.php:124
+#: core/um-actions-account.php:172 core/um-builtin.php:888
+#: core/um-builtin.php:891
 msgid "Delete Account"
 msgstr "Deletar conta"
 
@@ -1314,7 +1390,8 @@ msgstr "Sua senha deve conter pelo menos 8 caracteres"
 msgid "Your password must contain less than 30 characters"
 msgstr "Sua senha deve conter menos de 30 caracteres"
 
-#: core/um-actions-account.php:114 core/um-actions-form.php:206 core/um-actions-password.php:131
+#: core/um-actions-account.php:114 core/um-actions-form.php:206
+#: core/um-actions-password.php:131
 msgid "Your password must contain at least one lowercase letter, one capital letter and one number"
 msgstr "Sua senha deve conter pelo menos uma letra minúscula, uma letra maiúscula e um número"
 
@@ -1342,7 +1419,8 @@ msgstr "Email-me quando"
 msgid "Update Notifications"
 msgstr "Notificações de Atualizações"
 
-#: core/um-actions-ajax.php:42 core/um-actions-ajax.php:57 core/um-actions-ajax.php:107
+#: core/um-actions-ajax.php:42 core/um-actions-ajax.php:57
+#: core/um-actions-ajax.php:107
 msgid "You can not edit this user"
 msgstr "Você não pode editar este usuário"
 
@@ -1425,7 +1503,10 @@ msgstr "Digite somente números neste campo"
 msgid "Please enter a valid phone number"
 msgstr "Por favor insira um número de telefone válido"
 
-#: core/um-actions-form.php:249 core/um-actions-form.php:255 core/um-actions-form.php:261 core/um-actions-form.php:267 core/um-actions-form.php:273 core/um-actions-form.php:279 core/um-actions-form.php:285 core/um-actions-form.php:291
+#: core/um-actions-form.php:249 core/um-actions-form.php:255
+#: core/um-actions-form.php:261 core/um-actions-form.php:267
+#: core/um-actions-form.php:273 core/um-actions-form.php:279
+#: core/um-actions-form.php:285 core/um-actions-form.php:291
 #, php-format
 msgid "Please enter a valid %s username or profile URL"
 msgstr "Por favor insira um válido %s nome de usuário ou o perfil de URL"
@@ -1446,7 +1527,8 @@ msgstr "Nome de usuário não pode ser um e-mail"
 msgid "Your username contains invalid characters"
 msgstr "O seu nome de usuário contém caracteres inválidos"
 
-#: core/um-actions-form.php:316 core/um-actions-form.php:330 core/um-actions-form.php:342
+#: core/um-actions-form.php:316 core/um-actions-form.php:330
+#: core/um-actions-form.php:342
 msgid "This email is already linked to an existing account"
 msgstr "Este e-mail já está vinculado a uma conta existente"
 
@@ -1588,11 +1670,13 @@ msgstr "A sua conta está aguardando verificação de e-mail."
 msgid "Your membership request has been rejected."
 msgstr "O seu pedido de adesão foi rejeitada."
 
-#: core/um-actions-password.php:80 core/um-actions-password.php:111 core/um-form.php:84
+#: core/um-actions-password.php:80 core/um-actions-password.php:111
+#: core/um-form.php:84
 msgid "Hello, spam bot!"
 msgstr "Olá, o spam bot!"
 
-#: core/um-actions-password.php:83 core/um-actions-password.php:114 core/um-form.php:87
+#: core/um-actions-password.php:83 core/um-actions-password.php:114
+#: core/um-form.php:87
 msgid "Whoa, slow down! You're seeing this message because you tried to submit a form too fast and we think you might be a spam bot. If you are a real human being please wait a few seconds before submitting the form. Thanks!"
 msgstr "Whoa, devagar! Você está vendo esta mensagem porque você tentou enviar um formulário muito rápido e nós pensamos que você pode ser um spam bot. Se você é um ser humano real por favor aguarde alguns segundos antes de enviar o formulário. Obrigado!"
 
@@ -1638,9 +1722,10 @@ msgstr "Carregar uma foto da capa"
 
 #: core/um-actions-profile.php:315
 msgid "Upload photo"
-msgstr "Carregar a fotografia"
+msgstr "Carregar foto"
 
-#: core/um-actions-profile.php:324 core/um-fields.php:1246 core/um-fields.php:1279
+#: core/um-actions-profile.php:324 core/um-fields.php:1246
+#: core/um-fields.php:1279
 msgid "Change photo"
 msgstr "Mudar foto"
 
@@ -1650,7 +1735,7 @@ msgstr "Remover foto"
 
 #: core/um-actions-profile.php:375
 msgid "Tell us a bit about yourself..."
-msgstr "Conte-nos um pouco sobre você ..."
+msgstr "Conte-nos um pouco sobre seu food truck"
 
 #: core/um-actions-profile.php:386
 #, php-format
@@ -1681,25 +1766,27 @@ msgstr "Todos"
 msgid "Only me"
 msgstr "Somente eu"
 
-#: core/um-builtin.php:466 core/um-builtin.php:469 um-config.php:36 um-config.php:51
+#: core/um-builtin.php:466 core/um-builtin.php:469 um-config.php:36
+#: um-config.php:51
 msgid "Username"
-msgstr "Nome de utilizador"
+msgstr "Nome de usuário"
 
 #: core/um-builtin.php:479 core/um-builtin.php:482 core/um-builtin.php:844
 msgid "Username or E-mail"
 msgstr "Nome de usuário ou email"
 
-#: core/um-builtin.php:490 core/um-builtin.php:493 core/um-builtin.php:902 core/um-builtin.php:905
+#: core/um-builtin.php:490 core/um-builtin.php:493 core/um-builtin.php:902
+#: core/um-builtin.php:905
 msgid "Password"
 msgstr "Senha"
 
 #: core/um-builtin.php:504 core/um-builtin.php:507
 msgid "First Name"
-msgstr "Primeiro Nome"
+msgstr "Nome do seu Food Truck"
 
 #: core/um-builtin.php:514 core/um-builtin.php:517
 msgid "Last Name"
-msgstr "Sobrenome"
+msgstr "Seu nome"
 
 #: core/um-builtin.php:524 core/um-builtin.php:527
 msgid "Registration Date"
@@ -1971,7 +2058,8 @@ msgstr "Foto Sem Nome"
 msgid "About"
 msgstr "Sobre"
 
-#: core/um-filters-user.php:11 core/um-filters-user.php:33 core/um-filters-user.php:38
+#: core/um-filters-user.php:11 core/um-filters-user.php:33
+#: core/um-filters-user.php:38
 msgid "Approve Membership"
 msgstr "Aprovar Membership"
 
@@ -2059,7 +2147,8 @@ msgstr "Template padrão"
 msgid "Form"
 msgstr "Formulário"
 
-#: core/um-taxonomies.php:20 core/um-taxonomies.php:38 core/um-taxonomies.php:58
+#: core/um-taxonomies.php:20 core/um-taxonomies.php:38
+#: core/um-taxonomies.php:58
 msgid "Add New"
 msgstr "Adicionar novo"
 
@@ -2075,7 +2164,8 @@ msgstr "Editar Formulário"
 msgid "You did not create any forms yet"
 msgstr "Você não criar quaisquer formas ainda"
 
-#: core/um-taxonomies.php:24 core/um-taxonomies.php:42 core/um-taxonomies.php:62
+#: core/um-taxonomies.php:24 core/um-taxonomies.php:42
+#: core/um-taxonomies.php:62
 msgid "Nothing found in Trash"
 msgstr "Nada foi encontrado no lixo"
 
@@ -2323,13 +2413,25 @@ msgstr "Exigir uma senha forte? (Quando o usuário redefine única senha)"
 msgid "Enable or disable a strong password rules on password reset and change procedure"
 msgstr "Ativar ou desativar um forte sobre regras de senha de redefinição de senha e mudar procedimento"
 
-#: um-config.php:107 um-config.php:131 um-config.php:141 um-config.php:151 um-config.php:161 um-config.php:184 um-config.php:194 um-config.php:742 um-config.php:775 um-config.php:809 um-config.php:1235 um-config.php:1323 um-config.php:1348 um-config.php:1403 um-config.php:1413 um-config.php:1423 um-config.php:1455 um-config.php:1465 um-config.php:1480 um-config.php:1494
-#: um-config.php:1517 um-config.php:1527 um-config.php:1605 um-config.php:1707 um-config.php:1735 um-config.php:1745 um-config.php:1804 um-config.php:1814 um-config.php:1824 um-config.php:1834 um-config.php:1861 um-config.php:1870
+#: um-config.php:107 um-config.php:131 um-config.php:141 um-config.php:151
+#: um-config.php:161 um-config.php:184 um-config.php:194 um-config.php:742
+#: um-config.php:775 um-config.php:809 um-config.php:1235 um-config.php:1323
+#: um-config.php:1348 um-config.php:1403 um-config.php:1413 um-config.php:1423
+#: um-config.php:1455 um-config.php:1465 um-config.php:1480 um-config.php:1494
+#: um-config.php:1517 um-config.php:1527 um-config.php:1605 um-config.php:1707
+#: um-config.php:1735 um-config.php:1745 um-config.php:1804 um-config.php:1814
+#: um-config.php:1824 um-config.php:1834 um-config.php:1861 um-config.php:1870
 msgid "On"
 msgstr "Ligar"
 
-#: um-config.php:108 um-config.php:132 um-config.php:142 um-config.php:152 um-config.php:162 um-config.php:185 um-config.php:195 um-config.php:743 um-config.php:776 um-config.php:810 um-config.php:1236 um-config.php:1324 um-config.php:1349 um-config.php:1404 um-config.php:1414 um-config.php:1424 um-config.php:1456 um-config.php:1466 um-config.php:1481 um-config.php:1495
-#: um-config.php:1518 um-config.php:1528 um-config.php:1606 um-config.php:1708 um-config.php:1736 um-config.php:1746 um-config.php:1805 um-config.php:1815 um-config.php:1825 um-config.php:1835 um-config.php:1862 um-config.php:1871
+#: um-config.php:108 um-config.php:132 um-config.php:142 um-config.php:152
+#: um-config.php:162 um-config.php:185 um-config.php:195 um-config.php:743
+#: um-config.php:776 um-config.php:810 um-config.php:1236 um-config.php:1324
+#: um-config.php:1349 um-config.php:1404 um-config.php:1414 um-config.php:1424
+#: um-config.php:1456 um-config.php:1466 um-config.php:1481 um-config.php:1495
+#: um-config.php:1518 um-config.php:1528 um-config.php:1606 um-config.php:1708
+#: um-config.php:1736 um-config.php:1746 um-config.php:1805 um-config.php:1815
+#: um-config.php:1825 um-config.php:1835 um-config.php:1862 um-config.php:1871
 msgid "Off"
 msgstr "Desligado"
 
@@ -2565,15 +2667,21 @@ msgstr "Conta Bem-vindo Email"
 msgid "Whether to send the user an email when his account is automatically approved"
 msgstr "Se a enviar ao usuário um e-mail quando sua conta é automaticamente aprovado"
 
-#: um-config.php:434 um-config.php:470 um-config.php:502 um-config.php:534 um-config.php:570 um-config.php:601 um-config.php:632 um-config.php:663 um-config.php:695 um-config.php:750 um-config.php:783 um-config.php:817
+#: um-config.php:434 um-config.php:470 um-config.php:502 um-config.php:534
+#: um-config.php:570 um-config.php:601 um-config.php:632 um-config.php:663
+#: um-config.php:695 um-config.php:750 um-config.php:783 um-config.php:817
 msgid "Subject Line"
 msgstr "Linha de assunto"
 
-#: um-config.php:437 um-config.php:473 um-config.php:505 um-config.php:537 um-config.php:573 um-config.php:604 um-config.php:635 um-config.php:666 um-config.php:698 um-config.php:753 um-config.php:786 um-config.php:820
+#: um-config.php:437 um-config.php:473 um-config.php:505 um-config.php:537
+#: um-config.php:573 um-config.php:604 um-config.php:635 um-config.php:666
+#: um-config.php:698 um-config.php:753 um-config.php:786 um-config.php:820
 msgid "This is the subject line of the e-mail"
 msgstr "Esta é a linha de assunto do e-mail"
 
-#: um-config.php:444 um-config.php:480 um-config.php:512 um-config.php:544 um-config.php:580 um-config.php:611 um-config.php:642 um-config.php:673 um-config.php:705 um-config.php:760 um-config.php:793 um-config.php:827
+#: um-config.php:444 um-config.php:480 um-config.php:512 um-config.php:544
+#: um-config.php:580 um-config.php:611 um-config.php:642 um-config.php:673
+#: um-config.php:705 um-config.php:760 um-config.php:793 um-config.php:827
 msgid "Message Body"
 msgstr "Corpo da mensagem"
 
@@ -2627,7 +2735,7 @@ msgstr "Se a enviar ao usuário um e-mail quando sua conta é apagada"
 
 #: um-config.php:654 um-config.php:662 um-config.php:672
 msgid "Password Reset Email"
-msgstr "Password Reset Email"
+msgstr "Redefinir sua senha por Email"
 
 #: um-config.php:656 um-config.php:688
 msgid "Whether to send the user an email when he request to reset password (Recommended, please keep on)"
@@ -2635,7 +2743,7 @@ msgstr "Se a enviar ao usuário um e-mail quando ele pedir para redefinir a senh
 
 #: um-config.php:686 um-config.php:694 um-config.php:704
 msgid "Password Changed Email"
-msgstr "Senha Mudou-mail"
+msgstr "Senha alterada e-mail"
 
 #: um-config.php:731
 msgid "Admin E-mail Address"
@@ -3332,7 +3440,7 @@ msgstr "BuddyPress Avatar Transferência"
 
 #: um-init.php:40
 msgid "This add-on enables you to migrate your custom user photos from BuddyPress to use with Ultimate Member."
-msgstr "Este add-on permite que você migre suas fotos de usuário personalizadas de BuddyPress para usar com o Ultimate-Membro."
+msgstr "Este add-on permite que você migre suas fotos de usuário personalizadas de BuddyPress para usar com o Ultimate-Member."
 
 #~ msgid "outdatedBrowser_page_message"
 #~ msgstr "The site you are visiting can only be viewed using a modern browser. Please upgrade your browser to increase safety and your browsing experience. Choose one of the browsers above. If you don't care <a href=\"?forwardOutdatedBrowser=1\">click here</a>"

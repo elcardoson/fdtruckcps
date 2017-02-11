@@ -1,0 +1,16 @@
+*[id^='readlink'] {
+ font-weight: bold;
+ color: #FF8500;
+ padding: 5px;
+}
+
+*[id^='readlink']:hover {
+ font-weight: bold;
+ color: #FF9D32;
+ padding: 5px;
+}
+
+*[id^='readlink']:focus {
+ outline: none;
+ color: #FF9D32;
+}

@@ -11,6 +11,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<meta name="google-site-verification" content="iR-vnj_d8mHkav37C7ssz5xPcqCoR9GUZ1VpganW-EA" />
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<?php if ( get_theme_mod( 'penci_favicon' ) ) : ?>

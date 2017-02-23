@@ -37,13 +37,13 @@ function read_main($atts, $content = null) {
 	extract(shortcode_atts(array(
 		'more' => 'READ MORE',
 		'less' => 'READ LESS',
-		'extraClass' => ''
+		'extraclass' => 'extra-class'
 	), $atts));
 
 	mt_srand((double)microtime() * 1000000);
 	$rnum = mt_rand();
 
-	$new_string = '<span><a onclick="read_toggle(' . $rnum . ', \'' . addslashes($more) . '\', \'' . addslashes($less) . '\'); return false;" class="read-link ' . addslashes($extraClass) . '" id="readlink' . $rnum . '" style="readlink" href="#">' . addslashes($more) . '</a></span>' . "\n";
+	$new_string = '<span><a onclick="read_toggle(' . $rnum . ', \'' . addslashes($more) . '\', \'' . addslashes($less) . '\'); return false;" class="read-link ' . addslashes($extraclass) . '" id="readlink' . $rnum . '" style="readlink" href="#">' . addslashes($more) . '</a></span>' . "\n";
 	$new_string .= '<div class="read_div" id="read' . $rnum . '" style="display: none;">' . do_shortcode($content) . '</div>';
 
 	return $new_string;

@@ -313,3 +313,16 @@ function bc_rb_get_all_banners( $category ) {
 
 	return $all_row;
 }
+
+/**
+ * Get table status
+ */
+function bc_get_table_status($table_name) {
+	global $wpdb;
+	$table  = $wpdb->prefix . $table_name;
+
+
+	return  $wpdb->query(
+		"SHOW TABLES LIKE '{$table}'"
+	);
+}

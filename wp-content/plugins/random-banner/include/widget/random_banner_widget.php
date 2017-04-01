@@ -13,7 +13,7 @@ class random_banner_widget extends WP_Widget {
 	/**
 	 * Random_banner_widget constructor.
 	 */
-	function __construct() {
+	public function __construct() {
 		parent::__construct(
 			'random_banner_widget',
 			__( 'Random Banner', 'bc_rb' ),

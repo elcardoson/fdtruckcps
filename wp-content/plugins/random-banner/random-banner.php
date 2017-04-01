@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: Random Banner
- * Plugin URI: http://buffercode.com/project/random-banner/
+ * Plugin URI: http://ifecho.com/random-banner-pro
  * Description: Random Banner WordPress plugin provides users with high level of flexibility to show image banner and script ads randomly on Widgets
- * Version: 3.9.6.1
+ * Version: 3.9.6.99
  * Author: vinoth06
  * Author URI: http://buffercode.com/
  * License: GPLv2
@@ -15,7 +15,7 @@
 /**
  * Version Number
  */
-define( 'BC_RB_PLUGIN_VERSION', '3.9.6.1' );
+define( 'BC_RB_PLUGIN_VERSION', '3.9.6.99' );
 /**
  * Random Banner DB Name
  */
@@ -57,6 +57,7 @@ function register_session() {
 
 add_action( 'init', 'register_session', 1 );
 
+
 /**
  * Include Necessary Files
  */
@@ -71,3 +72,13 @@ require_once BC_RB_PLUGIN_DIR . '/include/validation/random_banner.php';
 require_once BC_RB_PLUGIN_DIR . '/include/controller/populate_content.php';
 require_once BC_RB_PLUGIN_DIR . '/include/controller/save_update_delete.php';
 require_once BC_RB_PLUGIN_DIR . '/include/widget/random_banner_widget.php';
+require_once BC_RB_PLUGIN_DIR . '/include/pages/support.php';
+require_once BC_RB_PLUGIN_DIR . '/include/function/cache.php';
+
+/**
+ * Clear Cache
+ */
+
+bc_clear_all_cache();
+
+

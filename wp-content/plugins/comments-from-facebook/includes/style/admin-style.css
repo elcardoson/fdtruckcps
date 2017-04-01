@@ -60,7 +60,7 @@
   display: inline-block;
   float: right;
 }
-
+/*Main parameters style*/
 .main_parametrs_group_div{
 	float:left;
 	background-color:#fafafa;
@@ -76,6 +76,7 @@
 	padding: 0;
 	line-height: 1;
 }
+/*Section styles*/
 .left_sections{
 	width:49%;
 	margin-right:1%;
@@ -104,6 +105,7 @@
 .main_parametrs_group_div.closed_params .head_panel_div{
 	border-bottom:0px;
 }
+/*TITLE STYLE*/
 .title_parametrs_group{
 	display: inline-block;
 	-webkit-user-select: none;
@@ -137,6 +139,7 @@
 	content: '\f142';
 	
 }
+/*Main parameters style*/
 .main_parametrs_group_div.closed_params .open_or_closed:before{
 	content: '\f140';
 }
@@ -213,6 +216,7 @@ button{
 .save_button_span{
 	 float:left;
 }
+/*Facebook Comments success save style*/
  .sucsses_save{
 	position: relative;
 	display:none;
@@ -223,6 +227,7 @@ button{
 	background-image: url(../../images/success.png);
 	background-size:100% 100%;
 }
+/*Facebook Comments failure save style*/
 .error_in_saving{
 	position: relative;
 	display:none;
@@ -233,6 +238,7 @@ button{
 	background-image: url(../../images/remove_element.png);
 	background-size:100% 100%;
 }
+/*Error message style*/
 .error_massage{
 	color: #BB1E1E;
 	font-size: 18px;

@@ -2,7 +2,7 @@
 /**
  * Populate Content for Front End
  *
- * @package populate-content
+ * @package random banner
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -43,7 +43,7 @@ function loop_data( $rows ) {
 	$content = '';
 	foreach ( $rows as $row ) {
 		if ( $row->banner_type == 'upload' ) {
-			$content .= '<div class="row single_upload '.sanitize_title( $row->category).'">
+			$content .= '<div class="row single_upload ' . sanitize_title( $row->category ) . '">
 <form>
 <input type="hidden" name="banner_type" value="' . esc_attr( $row->banner_type ) . '" />
 <input type="hidden" name="banner_id" class="form-control banner_id" value="' . $row->id . '"/>
@@ -102,7 +102,7 @@ function loop_data( $rows ) {
       </div>';
 		}
 		if ( $row->banner_type == 'script' ) {
-			$content .= '<div class="row single_upload '.sanitize_title( $row->category).'">
+			$content .= '<div class="row single_upload ' . sanitize_title( $row->category ) . '">
 <form>
 <input type="hidden" name="banner_type" value="' . esc_attr( $row->banner_type ) . '" />
 <input type="hidden" name="banner_id" class="form-control banner_id" value="' . $row->id . '"/>
@@ -343,7 +343,7 @@ function bc_rb_get_unique_banner_from_session( $category ) {
 	$get_all_banner = bc_rb_get_all_banners( $category );
 
 	if ( $get_all_banner ) {
-		if ( count( $_SESSION['bc_rb_category_session'] ) == count( $get_all_banner ) ) {
+		if ( count( $_SESSION['bc_rb_category_session'] ) >= count( $get_all_banner ) ) {
 			$_SESSION['bc_rb_category_session'] = array();
 		}
 		$rb_bc_pending = bc_rb_check_value_in_session( $get_all_banner );
@@ -391,7 +391,7 @@ function bc_rb_loop_campaign_data( $data ) {
 
 	foreach ( $data as $banner ) {
 		$ads_type_click = $ads_type_impression = '';
-		$content .= '<div class="row campaign_data bc_random_banner" data-display_name="' . bc_rb_get_user_display_name() . '">
+		$content        .= '<div class="row campaign_data bc_random_banner" data-display_name="' . bc_rb_get_user_display_name() . '">
 <form>
 <input type="hidden" name="banner_id" value="' . $banner->id . '" />
 <div class="col-md-2">
@@ -522,7 +522,7 @@ function bc_rb_log_get_all_banner( $category ) {
  */
 function bc_rb_generate_banners( $category, $slider = array() ) {
 	$banner_content = '';
-
+	$random_number = mt_rand( 11111, 999999 );
 	$options = get_random_banner_option_value();
 	if ( ( isset( $options['disable'] ) && 'checked' == $options['disable'] ) || bc_rb_check_user_logged_in( $options ) ) {
 		return $banner_content;
@@ -532,7 +532,7 @@ function bc_rb_generate_banners( $category, $slider = array() ) {
 		if ( ! $widgets ) {
 			$banner_content .= ' <br>There is no ads to display, Please add some <br>';
 		}
-		$random_number = rand( 11111, 999999 );
+
 
 		$banner_content .= '<div class="bc_random_banner_slider-' . $random_number . '">';
 		foreach ( $widgets as $widget ) {
@@ -544,7 +544,7 @@ function bc_rb_generate_banners( $category, $slider = array() ) {
 				if ( $widget->automatic == '' ) {
 					$custom_size = 'style=width:' . absint( $widget->width ) . 'px; height:' . absint( $widget->height ) . 'px';
 				}
-				$banner_content .= '<div class="bc_random_banner" data-id="' . (int) $widget->id . '" data-url="' . admin_url( 'admin-ajax.php?action=bc_rb_ads_click&nonce=' . wp_create_nonce( "bc_rb_ads_click" ) ) . '"><a ' . bc_rb_open_case() . ' href="' . $widget->external_link . '" title="' . esc_attr( $widget->file_description ) . '"><img ' . $custom_size . '  src="' . esc_url( $widget->file_url ) . '" title="' . esc_attr( $widget->file_description ) . '"/></a></div>';
+				$banner_content .= '<div class="bc_random_banner" data-id="' . (int) $widget->id . '" data-url="' . admin_url( 'admin-ajax.php?action=bc_rb_ads_click&nonce=' . wp_create_nonce( "bc_rb_ads_click" ) ) . '"><a ' . bc_rb_open_case() . ' href="' . $widget->external_link . '" title="' . esc_attr( $widget->file_description ) . '"><img ' . $custom_size . '  src="' . esc_url( $widget->file_url ) . '?v=' . $random_number . '" title="' . esc_attr( $widget->file_description ) . '"/></a></div>';
 			}
 		}
 		$banner_content .= '</div>';
@@ -561,7 +561,7 @@ function bc_rb_generate_banners( $category, $slider = array() ) {
 		$widget = bc_rb_get_unique_banner_from_session( $category );
 		if ( ! $widget ) {
 			$banner_content .= ' <br>There is no ads to display, Please add some <br>';
-		}  else {
+		} else {
 			if ( $widget->banner_type == 'script' ) {
 				$banner_content .= '<div class="bc_random_banner script_bc_rb_widget" data-id="' . (int) $widget->id . '" data-url="' . admin_url( 'admin-ajax.php?action=bc_rb_ads_click&nonce=' . wp_create_nonce( "bc_rb_ads_click" ) ) . '">'
 				                   . bc_rb_convert_to_html( $widget->file_url ) .
@@ -572,7 +572,7 @@ function bc_rb_generate_banners( $category, $slider = array() ) {
 				if ( $widget->automatic == '' ) {
 					$custom_size = 'style=width:' . absint( $widget->width ) . 'px; height:' . absint( $widget->height ) . 'px';
 				}
-				$banner_content .= '<div class="bc_random_banner" data-id="' . (int) $widget->id . '" data-url="' . admin_url( 'admin-ajax.php?action=bc_rb_ads_click&nonce=' . wp_create_nonce( "bc_rb_ads_click" ) ) . '"><a ' . bc_rb_open_case() . ' href="' . $widget->external_link . '" title="' . esc_attr( $widget->file_description ) . '"><img ' . $custom_size . ' src="' . esc_url( $widget->file_url ) . '"  title="' . esc_attr( $widget->file_description ) . '"/></a></div>';
+				$banner_content .= '<div class="bc_random_banner" data-id="' . (int) $widget->id . '" data-url="' . admin_url( 'admin-ajax.php?action=bc_rb_ads_click&nonce=' . wp_create_nonce( "bc_rb_ads_click" ) ) . '"><a ' . bc_rb_open_case() . ' href="' . $widget->external_link . '" title="' . esc_attr( $widget->file_description ) . '"><img ' . $custom_size . ' src="' . esc_url( $widget->file_url ) . '?v=' . $random_number . '"  title="' . esc_attr( $widget->file_description ) . '"/></a></div>';
 			}
 		}
 

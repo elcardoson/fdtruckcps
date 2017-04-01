@@ -198,7 +198,7 @@ class Tribe__Events__Venue {
 
 	public function meta_box_title( $title, $post_type ) {
 		if ( self::POSTTYPE === $post_type ) {
-			return 'Location';
+			return _x( 'Location', 'Metabox title', 'the-events-calendar' );
 		}
 
 		return $title;
@@ -293,6 +293,8 @@ class Tribe__Events__Venue {
 			update_post_meta( $venue_id, '_thumbnail_id', $data['FeaturedImage'] );
 			unset( $data['FeaturedImage'] );
 		}
+
+		unset( $data['Venue'] );
 
 		foreach ( $data as $key => $var ) {
 			update_post_meta( $venue_id, '_Venue' . $key, $var );

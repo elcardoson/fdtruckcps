@@ -3,8 +3,8 @@ Contributors: Okoth1
 Tags: bounce rate, seo, analytics, google, google analytics, statistics, stats, tracking, time on site
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=okoth1%40gmail%2ecom&item_name=Okoth1&item_number=plugin¤cy_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 2.6
-Tested up to: 4.7
-Stable tag: 4.2.0
+Tested up to: 4.7.2
+Stable tag: 4.3.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -94,6 +94,14 @@ No. Google Analytics doesn't have anything to do with PageRank. Google doesn't u
 
 
 == Changelog ==
+= 4.3.1 =
+* Rolled back to the 4.2.0 version, because there are errors with the MonsterInsight plugin.
+* February 7, 2017
+
+= 4.3.0 =
+* Fixed an Invalid argument supplied for foreach() warning shown in WP-CLI.
+* January 21, 2017
+
 = 4.2.0 =
 * Fixed a console error. Thanks to henkmat for reporting it and testing the solutions.
 * Checked with WP 4.7

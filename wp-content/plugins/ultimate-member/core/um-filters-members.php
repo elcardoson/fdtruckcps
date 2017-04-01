@@ -67,6 +67,28 @@
 					'compare' => 'NOT LIKE'
 				)
 			);
+		}
+
+		if( um_user_can('can_view_all') && um_user_can('can_view_roles')  ){
+			
+			$role = um_user('role');
+			
+			$permissions = $ultimatemember->query->role_data( $role );
+			
+			if ( isset( $permissions['can_view_roles'] ) && is_serialized( $permissions['can_view_roles'] ) ){
+				$roles = unserialize( $permissions['can_view_roles'] );
+			}else{
+				$roles = $permissions['can_view_roles'];
+			}
+
+			if( $roles && is_array( $roles )  ){ 
+				$query_args['meta_query'][] = array(
+					'key' => 'role',
+					'value' => $roles,
+					'compare' => 'IN'
+				);
+			}
+
 		}				
 						
 		return $query_args;
@@ -351,5 +373,18 @@
         }
 
     	return $atts;
+	}
+
+	/**
+	 * Filter gender query argument
+	 * @param  array $field_query 
+	 * @return array
+	 */
+	add_filter('um_query_args_gender__filter','um_query_args_gender__filter');
+	function um_query_args_gender__filter( $field_query ){
+
+		unset( $field_query[1] );
+
+		return $field_query;
 	}
 

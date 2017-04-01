@@ -20,6 +20,7 @@ function ga_events_settings_page() {
 
 	?>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<div id="ga_mainwrap">
 	<div id="ga_main" class="wrap">
 		<?php screen_icon( 'plugins' ); ?>
 	<h2>GA Scroll Events Plugin</h2>
@@ -100,7 +101,11 @@ function ga_events_settings_page() {
 			</table>
 
 		</div>
-		<?php }} ?>
+		<?php }
+		?>
+		</div> <!-- END #ga_mainwrap ->
+		<?php
+		} ?>
 
 
 <?php

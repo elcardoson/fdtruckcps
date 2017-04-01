@@ -1,5 +1,5 @@
 /*!
- * WP Googel Analytics Events | v2.4
+ * WP Googel Analytics Events | v2.4.1
  * Copyright (c) 2013 Yuval Oren (@yuvalo)
  * License: GPLv2
  */

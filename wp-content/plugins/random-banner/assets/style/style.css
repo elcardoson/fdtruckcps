@@ -6,7 +6,7 @@ html {
     padding-top: 20px;
 }
 
-.bc_rb_options, .campaign_data  {
+.bc_rb_options, .campaign_data {
     padding-top: 30px;
 }
 
@@ -15,7 +15,7 @@ html {
     width: 10% !important;
     height: 15px !important;
     border-radius: 20px !important;
-    margin:0;
+    margin: 0;
 }
 
 .bc_rb_paypal_amount .bc_rb_amount {
@@ -26,13 +26,15 @@ html {
     margin: 0px 0px 0px -20px !important;
 }
 
-.bc_rb_inline div{
+.bc_rb_inline div {
     display: inline-block;
     padding-right: 10px;
 }
+
 .margin_20 {
-    margin:20px 0;
+    margin: 20px 0;
 }
+
 .category_items {
     /*padding-top: 40px;*/
 }
@@ -47,7 +49,7 @@ html {
     padding: auto 20px;
 }
 
-.row.single_upload, .campaign_data  {
+.row.single_upload, .campaign_data {
     border: 1px solid #B3B3B3;
     padding: 20px;
     margin-bottom: 10px;
@@ -141,10 +143,12 @@ html {
     display: inline-block;
     padding-right: 20px;
 }
+
 .bc_filter_by {
     font-size: 19px;
     font-weight: 500;
 }
+
 /*!
  * Load Awesome v1.1.0 (http://github.danielcardoso.net/load-awesome/)
  * Copyright 2015 Daniel Cardoso <@DanielCardoso>
@@ -196,4 +200,47 @@ html {
         transform: scale(1.0);
         -webkit-transform: scale(1.0);
     }
+}
+
+.flex {
+    display: flex;
+}
+
+.flex_between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex_between .bc_item {
+    cursor: pointer;
+}
+
+.flex_center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bc_success_circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #1aa62a;
+}
+
+.bc_error_circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #BD081C;
+}
+
+.p-20 {
+    padding: 20px
+}
+
+.p-r-20 {
+    padding-right: 20px;
 }

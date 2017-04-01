@@ -420,7 +420,7 @@ abstract class Tribe__Events__Aggregator__Record__Abstract {
 	/**
 	 * Creates a child record based on the import record
 	 *
-	 * @return boolean|WP_Error
+	 * @return boolean|WP_Error|Tribe__Events__Aggregator__Record__Abstract
 	 */
 	public function create_child_record() {
 		$post = array(
@@ -486,10 +486,14 @@ abstract class Tribe__Events__Aggregator__Record__Abstract {
 	/**
 	 * Queues the import on the Aggregator service
 	 *
-	 * @return mixed
+	 * @see Tribe__Events__Aggregator__API__Import::create()
+	 *
+	 * @return stdClass|WP_Error|int A response object, a `WP_Error` instance on failure or a record
+	 *                               post ID if the record had to be re-scheduled due to HTTP request
+	 *                               limit.
 	 */
 	public function queue_import( $args = array() ) {
-		$aggregator = Tribe__Events__Aggregator::instance();
+		$aggregator = tribe( 'events-aggregator.main' );
 
 		$is_previewing = (
 			! empty( $_GET['action'] )
@@ -504,7 +508,7 @@ abstract class Tribe__Events__Aggregator__Record__Abstract {
 		$defaults = array(
 			'type'     => $this->meta['type'],
 			'origin'   => $this->meta['origin'],
-			'source'   => $this->meta['source'],
+			'source'   => isset( $this->meta['source'] ) ? $this->meta['source'] : '',
 			'callback' => $is_previewing ? null : site_url( '/event-aggregator/insert/?key=' . urlencode( $this->meta['hash'] ) ),
 		);
 
@@ -543,8 +547,15 @@ abstract class Tribe__Events__Aggregator__Record__Abstract {
 
 		// if the Aggregator API returns a WP_Error, set this record as failed
 		if ( is_wp_error( $response ) ) {
-			$error = $response;
-			return $this->set_status_as_failed( $error );
+			// if the error is just a reschedule set this record as pending
+			/** @var WP_Error $response */
+			if ( 'core:aggregator:http_request-limit' === $response->get_error_code() ) {
+				return $this->set_status_as_pending();
+			} else {
+				$error = $response;
+
+				return $this->set_status_as_failed( $error );
+			}
 		}
 
 		// if the Aggregator response has an unexpected format, set this record as failed
@@ -557,9 +568,6 @@ abstract class Tribe__Events__Aggregator__Record__Abstract {
 			'success:create-import' != $response->message_code
 			&& 'queued' != $response->message_code
 		) {
-			/**
-			 * @todo Allow overwriting the message
-			 */
 			$error = new WP_Error(
 				$response->message_code,
 				Tribe__Events__Aggregator__Errors::build(
@@ -588,7 +596,7 @@ abstract class Tribe__Events__Aggregator__Record__Abstract {
 	}
 
 	public function get_import_data() {
-		$aggregator = Tribe__Events__Aggregator::instance();
+		$aggregator = tribe( 'events-aggregator.main' );
 		return $aggregator->api( 'import' )->get( $this->meta['import_id'] );
 	}
 
@@ -868,7 +876,7 @@ abstract class Tribe__Events__Aggregator__Record__Abstract {
 			return __( 'When this import was last scheduled to run, the daily limit for your Event Aggregator license had already been reached.', 'the-events-calendar' );
 		}
 
-		return Tribe__Events__Aggregator__Service::instance()->get_service_message( $status );
+		return tribe( 'events-aggregator.service' )->get_service_message( $status );
 	}
 
 	/**
@@ -1062,7 +1070,18 @@ abstract class Tribe__Events__Aggregator__Record__Abstract {
 				$event['post_parent'] = $k;
 			}
 
-			//if we should create a venue or use existing
+			// Do we have an existing venue for this event that we should preserve?
+			// @todo review: should we care about the potential for multiple venue IDs?
+			if (
+				! empty( $event['ID'] )
+				&& 'preserve_changes' === $update_authority_setting
+				&& $existing_venue_id = tribe_get_venue_id( $event['ID'] )
+			) {
+				$event['EventVenueID'] = $existing_venue_id;
+				unset( $event['Venue'] );
+			}
+
+			// if we should create a venue or use existing
 			if ( ! empty( $event['Venue']['Venue'] ) ) {
 				$v_id = array_search( $event['Venue']['Venue'], $found_venues );
 				if ( false !== $v_id ) {
@@ -1081,6 +1100,16 @@ abstract class Tribe__Events__Aggregator__Record__Abstract {
 
 				// Remove the Venue to avoid duplicates
 				unset( $event['Venue'] );
+			}
+
+			// Do we have an existing organizer(s) for this event that we should preserve?
+			if (
+				! empty( $event['ID'] )
+				&& 'preserve_changes' === $update_authority_setting
+				&& $existing_organizer_ids = tribe_get_organizer_ids( $event['ID'] )
+			) {
+				$event['EventOrganizerID'] = $existing_organizer_ids;
+				unset( $event['Organizer'] );
 			}
 
 			//if we should create an organizer or use existing
@@ -1185,7 +1214,19 @@ abstract class Tribe__Events__Aggregator__Record__Abstract {
 				update_post_meta( $event['ID'], '_EventRecurrenceRRULE', $event['EventRecurrenceRRULE'] );
 			}
 
-			$terms = array();
+			// Are there any existing event categories for this event?
+			$terms = wp_get_object_terms( $event['ID'], Tribe__Events__Main::TAXONOMY );
+
+			if ( is_wp_error( $terms ) ) {
+				$terms = array();
+			}
+
+			// If so, should we preserve those categories?
+			if ( ! empty( $terms ) && 'preserve_changes' === $update_authority_setting ) {
+				$terms = wp_list_pluck( $terms, 'term_id' );
+				unset( $event['categories'] );
+			}
+
 			if ( ! empty( $event['categories'] ) ) {
 				foreach ( $event['categories'] as $cat ) {
 					if ( ! $term = term_exists( $cat, Tribe__Events__Main::TAXONOMY ) ) {
@@ -1212,7 +1253,7 @@ abstract class Tribe__Events__Aggregator__Record__Abstract {
 			// If we have a Image Field from Service
 			if ( ! empty( $event['image'] ) ) {
 				// Attempt to grab the event image
-				$image_import = Tribe__Events__Aggregator::instance()->api( 'image' )->get( $event['image']->id );
+				$image_import = tribe( 'events-aggregator.main' )->api( 'image' )->get( $event['image']->id );
 
 				/**
 				 * Filters the returned event image url
@@ -1330,5 +1371,34 @@ abstract class Tribe__Events__Aggregator__Record__Abstract {
 	 */
 	public function finalize() {
 		$this->update_meta( 'finalized', true );
+	}
+
+	/**
+	 * preserve Event Options
+	 *
+	 * @param array $event Event data
+	 *
+	 * @return array
+	 */
+	public static function preserve_event_option_fields( $event ) {
+		$event_post = get_post( $event['ID'] );
+		$post_meta = Tribe__Events__API::get_and_flatten_event_meta( $event['ID'] );
+
+		// we want to preserve this option if not explicitly being overridden
+		if ( ! isset( $event['EventHideFromUpcoming'] ) && isset( $post_meta['_EventHideFromUpcoming'] ) ) {
+			$event['EventHideFromUpcoming'] = $post_meta['_EventHideFromUpcoming'];
+		}
+
+		// we want to preserve the existing sticky state unless it is explicitly being overridden
+		if ( ! isset( $event['EventShowInCalendar'] ) && '-1' == $event_post->menu_order ) {
+			$event['EventShowInCalendar'] = 'yes';
+		}
+
+		// we want to preserve the existing featured state unless it is explicitly being overridden
+		if ( ! isset( $event['feature_event'] ) && isset( $post_meta['_tribe_featured'] ) ) {
+			$event['feature_event'] = $post_meta['_tribe_featured'];
+		}
+
+		return $event;
 	}
 }

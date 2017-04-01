@@ -81,7 +81,8 @@ class UM_Fields {
 	 * @return string      
 	 */
 	function disabled_hidden_field( $key, $value ){
-		return '<input type="hidden" name="'.$key.'" value="'.esc_attr( $value ).'"/>';
+
+			return '<input type="hidden" name="'.$key.'" value="'.esc_attr( $value ).'"/>';
 	}
 
 	
@@ -1074,6 +1075,9 @@ class UM_Fields {
 
 		if ( !isset( $array['visibility'] ) ) $array['visibility'] = 'all';
 
+		$array = apply_filters("um_get_field__{$key}", $array );
+		
+
 		return $array;
 	}
 
@@ -1089,7 +1093,7 @@ class UM_Fields {
 
 		$output = null;
 		$disabled = '';
-		
+
 		// get whole field data
 		if ( isset( $data ) && is_array( $data ) ) {
 			$data = $this->get_field($key);
@@ -1104,9 +1108,25 @@ class UM_Fields {
 		
 		if ( $visibility == 'view' && $this->set_mode != 'register' ) return;
 
-		if ( $visibility == 'view' && $this->set_mode == 'register' ){
-			$disabled = ' disabled="disabled" ';
+		if ( ( $visibility == 'view' && $this->set_mode == 'register' ) || 
+			( isset( $data['editable'] ) && $data['editable'] == 0 && $this->set_mode == 'profile' ) ){
+				
+				if( ! current_user_can('manage_options') ){
+					$disabled = ' disabled="disabled" ';
+				}
+
+				if ( isset( $data['public'] ) && $data['public'] == '-2' && $data['roles'] ){
+					if ( in_array( $ultimatemember->query->get_role_by_userid( get_current_user_id() ), $data['roles'] ) ){
+						$disabled = '';
+					}
+				}
+
 		}
+
+		if( ! isset( $data['autocomplete'] ) ){
+			$autocomplete = 'off';
+		}
+
 
 		if ( !um_can_view_field( $data ) ) return;
 		if ( !um_can_edit_field( $data ) ) return;
@@ -1217,7 +1237,7 @@ class UM_Fields {
 						$field_name = $key.$ultimatemember->form->form_suffix;
 						$field_value = htmlspecialchars( $this->field_value( $key, $default, $data ) );
 
-						$output .= '<input '.$disabled.' class="'.$this->get_class($key, $data).'" type="'.$input.'" name="'.$field_name.'" id="'.$field_name.'" value="'. $field_value .'" placeholder="'.$placeholder.'" data-validate="'.$validate.'" data-key="'.$key.'" />
+						$output .= '<input '.$disabled.' autocomplete="'.$autocomplete.'" class="'.$this->get_class($key, $data).'" type="'.$input.'" name="'.$field_name.'" id="'.$field_name.'" value="'. $field_value .'" placeholder="'.$placeholder.'" data-validate="'.$validate.'" data-key="'.$key.'" />
 
 						</div>';
                  		
@@ -1397,7 +1417,7 @@ class UM_Fields {
 
 					}
 
-				break;
+					break;
 
 			/* URL */
 			case 'url':
@@ -1774,7 +1794,10 @@ class UM_Fields {
 						$output .= $this->field_label($label, $key, $data);
 						}
 
-						$output .= '<div class="um-field-area">';
+						$output .= '<div class="um-field-area '.( isset(  $this->field_icons ) && $this->field_icons == 'field' ? 'um-field-area-has-icon':'' ).' ">';
+						if ( isset( $icon ) && $icon && isset( $this->field_icons ) && $this->field_icons == 'field' ) {
+							$output .= '<div class="um-field-icon"><i class="'.$icon.'"></i></div>';
+						}
 						
 						$has_parent_option = false;
 						$disabled_by_parent_option = '';
@@ -1928,10 +1951,16 @@ class UM_Fields {
 						$output .= $this->field_label($label, $key, $data);
 						}
 
+						$field_icon = false;
+						$field_icon_output = '';
+
 						$use_keyword = apply_filters('um_multiselect_option_value', 0, $data['type'] );
 
-						$output .= '<div class="um-field-area">';
-
+						$output .= '<div class="um-field-area '.( isset(  $this->field_icons ) && $this->field_icons == 'field' ? 'um-field-area-has-icon':'' ).' ">';
+						if ( isset( $icon ) && $icon && isset( $this->field_icons ) && $this->field_icons == 'field' ) {
+							$output .= '<div class="um-field-icon"><i class="'.$icon.'"></i></div>';
+						}
+						
 						$output .= '<select  '.$disabled.' multiple="multiple" name="'.$key.'[]" id="'.$key.'" data-maxsize="'. $max_selections . '" data-validate="'.$validate.'" data-key="'.$key.'" class="'.$this->get_class($key, $data, $class).' um-user-keyword_'.$use_keyword.'" style="width: 100%" data-placeholder="'.$placeholder.'">';
 
 						
@@ -2503,9 +2532,12 @@ class UM_Fields {
 			default:
 
 				$output .= '<div class="um-field' . $classes . '"' . $conditional . ' data-key="'.$key.'">';
+					
+						if ( isset( $data['label'] ) || isset( $data['icon'] ) && ! empty( $data['icon'] ) ) {
 
-						if ( isset( $data['label'] ) ) {
-							$output .= $this->field_label($label, $key, $data);
+							if( ! isset( $data['label'] ) ) $data['label'] = '';
+
+							$output .= $this->field_label( $data['label'], $key, $data);
 						}
 						
 						$res = $this->field_value( $key, $default, $data );
@@ -2562,7 +2594,7 @@ class UM_Fields {
 
 				$output .= '<div class="um-field' . $classes . '"' . $conditional . ' data-key="'.$key.'">';
 
-						if ( isset( $data['label'] ) ) {
+						if ( isset( $data['label'] ) || isset( $data['icon'] ) && ! empty( $data['icon'] ) ) {
 							$output .= $this->field_label($label, $key, $data);
 						}
 
@@ -2790,6 +2822,7 @@ class UM_Fields {
 		$padding = (isset($padding))?$padding:'';
 		$margin = (isset($margin))?$margin:'';
 		$background = (isset($background))?$background:'';
+		$text_color = (isset($text_color))?$text_color:'';
 		$borderradius = (isset($borderradius))?$borderradius:'';
 		$border = (isset($border))?$border:'';
 		$bordercolor = (isset($bordercolor))?$bordercolor:'';
@@ -2808,6 +2841,7 @@ class UM_Fields {
 		$css_heading_padding = '';
 		$css_heading_text_color = '';
 		$css_heading_borderradius = '';
+		$css_text_color = '';
 
 		// row css rules
 		if ( $padding ) $css_padding = 'padding: ' . $padding .';';
@@ -2822,6 +2856,7 @@ class UM_Fields {
 		if ( $border ) $css_border = 'border-width: ' . $border . ';';
 		if ( $bordercolor ) $css_bordercolor = 'border-color: ' . $bordercolor . ';';
 		if ( $borderstyle ) $css_borderstyle = 'border-style: ' . $borderstyle . ';';
+		if ( $text_color ) $css_text_color = 'color: ' . $text_color . ' !important;';
 
 		// show the heading
 		if ( $heading ) {
@@ -2852,7 +2887,7 @@ class UM_Fields {
 
 		}
 
-		$output .= '<div class="um-row ' . $row_id . ' ' . $css_class . '" style="'. $css_padding . $css_background . $css_margin . $css_border . $css_borderstyle . $css_bordercolor . $css_borderradius . '">';
+		$output .= '<div class="um-row ' . $row_id . ' ' . $css_class . '" style="'. $css_padding . $css_background . $css_margin . $css_border . $css_borderstyle . $css_bordercolor . $css_borderradius . $css_text_color.'">';
 
 		return $output;
 	}

@@ -325,8 +325,15 @@ class UM_User {
 	 *
 	 */
 	function auto_login( $user_id, $rememberme = 0 ) {
-		wp_set_current_user($user_id);
-		wp_set_auth_cookie($user_id, $rememberme );
+		
+		wp_set_current_user( $user_id );
+		
+		wp_set_auth_cookie( $user_id, $rememberme );
+		
+		$user = get_user_by('ID', $user_id );
+		
+		do_action( 'wp_login', $user->user_login, $user );
+
 	}
 
 	/***
@@ -791,14 +798,14 @@ class UM_User {
 	***	@Get admin actions for individual user
 	***/
 	function get_admin_actions() {
-		$items = '';
+		$items = array();
 		$actions = array();
 		$actions = apply_filters('um_admin_user_actions_hook', $actions );
 		if ( !isset( $actions ) || empty( $actions ) ) return false;
 		foreach($actions as $id => $arr ) {
 			$url = add_query_arg('um_action', $id );
 			$url = add_query_arg('uid', um_profile_id(), $url );
-			$items[] = '<a href="' . $url .'" class="real_url">' . $arr['label'] . '</a>';
+			$items[] = '<a href="' . $url .'" class="real_url '.$id.'-item">' . $arr['label'] . '</a>';
 		}
 		return $items;
 	}
@@ -1097,6 +1104,24 @@ class UM_User {
 		}
 
 		return $user_id;
+	}
+
+	/**
+	 * Set gravatar hash id
+	 */
+	function set_gravatar( $user_id ){
+
+		um_fetch_user( $user_id );
+		$email_address = um_user('user_email');
+		$hash_email_address = '';
+
+		if( $email_address ){
+			$hash_email_address = md5( $email_address );
+			$this->profile['synced_gravatar_hashed_id'] = $hash_email_address;
+			$this->update_usermeta_info('synced_gravatar_hashed_id');
+		}
+
+		return $hash_email_address;
 	}
 
 }

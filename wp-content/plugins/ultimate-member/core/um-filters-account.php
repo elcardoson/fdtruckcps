@@ -1,6 +1,5 @@
 <?php
 
-
 	/**
 	 * Account default tabs
 	 * @param  array $tabs 
@@ -21,6 +20,7 @@
 				
 				if ( $id == 'delete' ) {
 					if ( !um_user('can_delete_profile') && !um_user('can_delete_everyone') ) {
+
 						unset( $tabs[$k][$id] );
 					}
 				}
@@ -41,10 +41,17 @@
 	 */
 	add_filter('um_account_secure_fields','um_account_secure_fields', 10, 2);
 	function um_account_secure_fields( $fields, $tab_key ){
+		global $ultimatemember;
+		$secure = apply_filters('um_account_secure_fields__enabled', true );
 
-		$_SESSION['um_account_fields'][ $tab_key ] = $fields; 
+		if( ! $secure ) return $fields;
 
-		update_user_meta( um_user('ID'), 'um_account_secure_fields', $_SESSION['um_account_fields'] );
 		
+		if( isset( $ultimatemember->account->register_fields ) && ! isset( $ultimatemember->account->register_fields[ $tab_key ] ) ){
+			$ultimatemember->account->register_fields[ $tab_key ] = $fields;
+		}
+
+		
+
 		return $fields;
 	}

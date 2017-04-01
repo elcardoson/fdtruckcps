@@ -116,7 +116,7 @@ function bc_rb_drop_down( $name, $options, $selected = null, $onchange = null, $
 	$dropdown = '<select name="' . $name . '" class="form-control ' . $class . '"' . $onchange . '>' . "\n";
 
 	foreach ( $options as $key => $option ) {
-		$select = $selected == $key ? ' selected="true" selected' : "";
+		$select   = $selected == $key ? ' selected="true" selected' : "";
 		$dropdown .= sprintf(
 			"<option value=\"%s\"%s>%s</option>\r\n", htmlspecialchars( $key ), $select, ucfirst( htmlspecialchars( $option ) )
 		);
@@ -144,8 +144,8 @@ function bc_rb_drop_down_currency( $name, $options, $selected = null, $onchange 
 	$dropdown = '<select name="' . $name . '" class="form-control ' . $class . '"' . $onchange . '>' . "\n";
 
 	foreach ( $options as $key => $option ) {
-		$select  = $selected == $key ? ' selected="true" selected' : "";
-		$option_ = $option['name'] . ' (' . $option['symbol'] . ')';
+		$select   = $selected == $key ? ' selected="true" selected' : "";
+		$option_  = $option['name'] . ' (' . $option['symbol'] . ')';
 		$dropdown .= sprintf(
 			"<option value=\"%s\"%s>%s</option>\r\n", htmlspecialchars( $key ), $select, $option_
 		);
@@ -176,7 +176,7 @@ function bc_rb_drop_down_category_filter( $name, $options, $selected = null, $on
 	);
 
 	foreach ( $options as $key => $option ) {
-		$select = $selected == $key ? ' selected="true" selected' : "";
+		$select   = $selected == $key ? ' selected="true" selected' : "";
 		$dropdown .= sprintf(
 			"<option value=\"%s\"%s>%s</option>\r\n", htmlspecialchars( sanitize_title( $key ) ), $select, ucfirst( htmlspecialchars( $option ) )
 		);
@@ -186,6 +186,7 @@ function bc_rb_drop_down_category_filter( $name, $options, $selected = null, $on
 
 	return $dropdown;
 }
+
 /**
  * Get Yes or No Option Values
  *
@@ -382,9 +383,10 @@ function bc_rb_insert_post_page() {
  */
 function bc_rb_insert_post_locations() {
 	return array(
-		'bottom'          => 'bottom',
-		'top'             => 'top [Pro Version]',
-		'After paragraph' => 'After paragraph [Pro Version]',
+		'bottom'                     => 'bottom',
+		'top'                        => 'top [Pro Version]',
+		'After paragraph'            => 'After paragraph [Pro Version]',
+		'top bottom after paragraph' => 'Top, Bottom, After paragraph [Pro Version]',
 	);
 }
 
@@ -593,4 +595,16 @@ function bc_rb_currency_lists() {
 		'XPF' => array( 'name' => 'CFP Franc', 'symbol' => 'F', 'hex' => '&#x46;' ),
 		'ZAR' => array( 'name' => 'South African Rand', 'symbol' => 'R', 'hex' => '&#x52;' ),
 	);
+}
+
+/**
+ * Show error or success
+ */
+function bc_success_error($bool) {
+	$bool = filter_var($bool,FILTER_VALIDATE_BOOLEAN);
+
+	if($bool){
+		return '<div class="bc_success_circle"></div>';
+	}
+	return '<div class="bc_error_circle"></div>';
 }

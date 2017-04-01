@@ -71,13 +71,13 @@ jQuery(document).ready(function ($) {
             }
             //console.log(moment().format('YYYYMMDD'));
 
-            if (($('.single_upload').length >= 5)) {
+            if (($('.single_upload').length >= 10)) {
                 var display_name = $(this).closest('.bc_random_banner').data('display_name');
                 paypal_donation_popup_no_skip(display_name.toUpperCase());
                 $('.bc_rb_amount input[checked]').trigger('click');
                 return false;
             }
-            if (($('.single_upload').length >= 4) && (( $('.upload_area').data('payment_info') == 'no') || ($('.upload_area').data('payment_info') < moment().format('YYYYMMDD')))) {
+            if (($('.single_upload').length >= 10) && (( $('.upload_area').data('payment_info') == 'no') || ($('.upload_area').data('payment_info') < moment().format('YYYYMMDD')))) {
                 // Check for more than five to show donation popup
                 var display_name = $(this).closest('.bc_random_banner').data('display_name');
                 paypal_donation_popup(display_name.toUpperCase());

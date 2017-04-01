@@ -1,6 +1,6 @@
 <?php 
 
-/*############  Admin Menu Class ################*/
+    /*############  Admin Menu Class ################*/
 
 class wpdevart_comment_admin_menu{
 	
@@ -9,6 +9,8 @@ class wpdevart_comment_admin_menu{
 	private $plugin_url;
 	private $text_parametrs;
 
+	/*###################### Constract params function ##################*/	
+	
 	function __construct($param){
 		
 		$this->menu_name=$param['menu_name'];
@@ -21,6 +23,8 @@ class wpdevart_comment_admin_menu{
 			add_action( 'add_meta_boxes', array($this,'wpdevart_comment_add_meta_box') );
 			add_action( 'save_post', array($this,'wpdevar_save_post') );
 	}
+
+	/*###################### Meta Box function ##################*/	
 	
 	public function wpdevart_comment_add_meta_box() {
 
@@ -31,6 +35,9 @@ class wpdevart_comment_admin_menu{
 			add_meta_box('myplugin_sectionid',	'Disable Wpdevart facebook comment',array($this,'generete_html_for_wpdevart_comment_box'),	$post_type	);
 		}
 	}
+	
+    /*############  HTML generating function  ################*/
+	
 	public function generete_html_for_wpdevart_comment_box($post){
 		// Add field that we can check later.
 		wp_nonce_field( 'wpdevar_save_post', 'wpdevart_facebook_meta_box_nonce' );
@@ -45,6 +52,9 @@ class wpdevart_comment_admin_menu{
 		echo '</label> ';
 		echo '<select id="wpdevart_disable_field" name="wpdevart_disable_field"><option value="enable">Enable</option><option '.(($value=='disable')?'selected="selected"':'').' value="disable">Disable</option></select>';
 	}
+	
+	/*###################### Post save function ##################*/	
+	
 	function wpdevar_save_post( $post_id ) {
 
 		
@@ -84,6 +94,8 @@ class wpdevart_comment_admin_menu{
 		add_action('admin_print_styles-' .$main_page, array($this,'menu_requeried_scripts'));
 		add_action('admin_print_styles-' .$page_wpdevart_comment, array($this,'menu_requeried_scripts'));		
 	}
+
+	/*###################### Requaried scripts function ##################*/	
 	
 	public function menu_requeried_scripts(){
 		wp_enqueue_script('wp-color-picker');		
@@ -91,6 +103,8 @@ class wpdevart_comment_admin_menu{
 		wp_enqueue_script( 'comment-box-admin-script' ); 
 		wp_enqueue_style('comment-box-admin-style');
 	}
+	
+	/*###################### Generate parameters function ##################*/		
 	
 	private function generete_parametrs($page_name){
 		$page_parametrs=array();
@@ -103,7 +117,7 @@ class wpdevart_comment_admin_menu{
 		return NULL;
 		
 	}
-	
+	/*###################### Database function ##################*/	
 	public function save_in_databese(){
 		$kk=1;	
 		if(isset($_POST['wpdevart_comment_options_nonce']) && wp_verify_nonce( $_POST['wpdevart_comment_options_nonce'],'wpdevart_comment_options_nonce')){
@@ -124,6 +138,8 @@ class wpdevart_comment_admin_menu{
 		}
 		die($this->text_parametrs['parametrs_sucsses_saved']);
 	}
+	
+	/*###################### Main menu function ##################*/		
 	
 	public function main_menu_function(){	
 	
@@ -174,18 +190,18 @@ Also, here is another tutorial(from other source) of creating App Id, you can ch
                                             
                                             <p><strong>Here are explanation of Facebook comments shortcode attributes.</strong></p>
                                             
-                                            <p><strong>curent_url</strong> - Type the page URL from where you need to show Facebook comments </p>
-                                            <p><strong>title_text</strong> - Type here Facebook comments box title</p>
-                                            <p><strong>colorscheme</strong> <span class="pro_feature"> (pro)</span> - Select Facebook comments box color scheme.Can be "light" or "dark".</p>
-                                            <p><strong>order_type</strong> - Select Facebook comments box order type.The order to use when displaying comments. Can be "social", "reverse_time", or "time". </p>
-                                            <p><strong>title_text_color</strong> - Select Facebook comments box title text color</p>
-                                            <p><strong>title_text_font_size</strong> - Type Facebook comments box title font-size(px)</p>
-                                            <p><strong>title_text_font_famely</strong> - Select Facebook comments box title font family</p>
-                                            <p><strong>title_text_position</strong> - Select Facebook comments box title position</p>
-                                            <p><strong>width</strong> - Type here the Facebook comments box width(px)</p>
-                                            <p><strong>count_of_comments</strong> - Type here the number of Facebook comments you need to display</p>
-                                            <p><strong>bg_color</strong> <span class="pro_feature"> (pro)</span> - Select Facebook comments background color</p>
-                                            <p><strong>animation_effect</strong> <span class="pro_feature"> (pro)</span> - Select the animation effect for Facebook comments box</p>
+                                            <p><strong>Curent_url</strong> - Type the page URL from where you need to show Facebook comments </p>
+                                            <p><strong>Title_text</strong> - Type here Facebook comments box title</p>
+                                            <p><strong>Colorscheme</strong> <span class="pro_feature"> (pro)</span> - Select Facebook comments box color scheme.Can be "light" or "dark".</p>
+                                            <p><strong>Order_type</strong> - Select Facebook comments box order type.The order to use when displaying comments. Can be "social", "reverse_time", or "time". </p>
+                                            <p><strong>Title_text_color</strong> - Select Facebook comments box title text color</p>
+                                            <p><strong>Title_text_font_size</strong> - Type Facebook comments box title font-size(px)</p>
+                                            <p><strong>Title_text_font_famely</strong> - Select Facebook comments box title font family</p>
+                                            <p><strong>Title_text_position</strong> - Select Facebook comments box title position</p>
+                                            <p><strong>Width</strong> - Type here the Facebook comments box width(px)</p>
+                                            <p><strong>Count_of_comments</strong> - Type here the number of Facebook comments you need to display</p>
+                                            <p><strong>Bg_color</strong> <span class="pro_feature"> (pro)</span> - Select Facebook comments background color</p>
+                                            <p><strong>Animation_effect</strong> <span class="pro_feature"> (pro)</span> - Select the animation effect for Facebook comments box</p>
 
                                         </div>
                                     </td>
@@ -372,8 +388,16 @@ Also, here is another tutorial(from other source) of creating App Id, you can ch
 		<?php	
 	}
 	
+	/*###################### Featured plugin function ##################*/	
+	
 	public function featured_plugins(){
 		$plugins_array=array(
+			'gallery_album'=>array(
+						'image_url'		=>	$this->plugin_url.'images/featured_plugins/gallery-album-icon.png',
+						'site_url'		=>	'http://wpdevart.com/wordpress-gallery-plugin',
+						'title'			=>	'WordPress Gallery plugin',
+						'description'	=>	'Gallery plugin is an useful tool that will help you to create Galleries and Albums. Try our nice Gallery views and awesome animations.'
+						),		
 			'coming_soon'=>array(
 						'image_url'		=>	$this->plugin_url.'images/featured_plugins/coming_soon.jpg',
 						'site_url'		=>	'http://wpdevart.com/wordpress-coming-soon-plugin/',
@@ -504,7 +528,7 @@ Also, here is another tutorial(from other source) of creating App Id, you can ch
             </div>
             <?php } 
 	}
-	/*######################################### SUBSCRIBE FORM #######################################*/
+	/*######################################### Fonts Function #######################################*/
 
 	private function create_select_element_for_font($select_id='',$curent_font='none'){
 	?>

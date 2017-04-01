@@ -58,7 +58,7 @@ function bc_random_banner_settings() {
 </div>
 ' . bc_rb_loader();
 	if ( isset( $_REQUEST['success'] ) ) {
-		echo bc_rb_on_success_payment( $_REQUEST );
+		bc_rb_on_success_payment( $_REQUEST );
 	}
 
 	echo '<div class="row"><div class="col-md-4 bc_filters hide"><div class="bc_filter_by">Filter By</div><div>
@@ -66,12 +66,12 @@ function bc_random_banner_settings() {
 </div></div></div>';
 
 
-	echo '<div class="upload_area col-md-10" data-url="' . admin_url( 'admin-ajax.php?action=bc_rb_save_banner&nonce=' . wp_create_nonce( "bc_rb_nonce" ) ) . '" data-delete="' . admin_url( 'admin-ajax.php?action=bc_rb_delete_banner&nonce=' . wp_create_nonce( "bc_rb_nonce_delete" ) ) . '" data-payment_info="' . get_option( 'bc_rb_payment_info' ) . '" data-donation_later="' . admin_url( 'admin-ajax.php?action=bc_rb_donation_later&nonce=' . wp_create_nonce( "bc_rb_donation_later" ) ) . '">';
+	echo '<div class="upload_area col-md-12" data-url="' . admin_url( 'admin-ajax.php?action=bc_rb_save_banner&nonce=' . wp_create_nonce( "bc_rb_nonce" ) ) . '" data-delete="' . admin_url( 'admin-ajax.php?action=bc_rb_delete_banner&nonce=' . wp_create_nonce( "bc_rb_nonce_delete" ) ) . '" data-payment_info="' . get_option( 'bc_rb_payment_info' ) . '" data-donation_later="' . admin_url( 'admin-ajax.php?action=bc_rb_donation_later&nonce=' . wp_create_nonce( "bc_rb_donation_later" ) ) . '">';
 
 	echo loop_data( $get_all_data );
 
 	echo '</div>';
-	echo '<div class="col-md-2"><div class="offers_list"> ' . bc_rb_get_offers() . '</div></div>';
+	//echo '<div class="col-md-2"><div class="offers_list"> ' . bc_rb_get_offers() . '</div></div>';
 
 
 	echo '</div>';
@@ -82,43 +82,7 @@ function bc_random_banner_settings() {
  * Sub Menu Support
  */
 function bc_random_banner_support() {
-	echo '<div class="container bc_random_banner" data-display_name="' . bc_rb_get_user_display_name() . '">
-' . bc_rb_loader();
-	echo '<div class="row">';
-	echo '<h2>' . esc_html__( 'Random Banner Support - V'.BC_RB_PLUGIN_VERSION.'', 'bc_rb' ) . '</h2>';
-	if ( isset( $_REQUEST['success'] ) ) {
-		echo bc_rb_on_success_payment( $_REQUEST );
-	}
-	?>
-	<div class="col-md-12">
-		<h1><?php esc_html__( 'Sorry you are not subscribed for any plan yet', 'bc_rb' ) ?></h1>
-
-		<h1>How to install the Pro version</h1>
-		<ol>
-			<li>Please Deactivate and Uninstall the Random Banner free version</li>
-			<li>Hope you have received the login credentials to your PayPal email address after your purchase. (If not,
-				please contact us on live chat (<a href="https://ifecho.com/"
-				                                   target="_blank">https://ifecho.com/</a>).
-			</li>
-			<li>Download the Pro version using credentials.</li>
-			<li>Upload the file using plugins --> Add New from your Admin Dashboard.</li>
-			<li>Activate the plugin using your Licence key</li>
-			<li>You can get the license key from <a href="https://ifecho.com/activation_code"
-			                                        target="_blank">ifecho - Activation</a></li>
-			<li>Apply the license key and activate it.</li>
-			<li>If you still not able to activate the plugin, please contact me through the live chat on
-				<a href="https://ifecho.com/"
-				   target="_blank">https://ifecho.com/</a></li>
-		</ol>
-
-	</div>
-
-	<?php
-	if (! isset( $_REQUEST['success'] ) ) {
-		echo '<div class="col-md-12 bc_rb_transaction_details"> ' . bc_rb_show_payment_details() . '</div>';
-	}
-
-	echo '<div class="col-md-12 bc_rb_transaction_details"><h4> ' . esc_html__( 'Kindly rate our plugin in ', 'bc_rb' ) . ' <a href="https://wordpress.org/support/view/plugin-reviews/random-banner?rate=5#postform">WordPress</a></h4> </div>';
+	bc_get_random_banner_support();
 }
 
 /**
@@ -164,7 +128,7 @@ function bc_random_banner_option() {
           <div class="col-md-6 category"  data-display_name="' . bc_rb_get_user_display_name() . '">
 <div class="row">
 <h2> ' . esc_html__( 'Add Category', 'bc_rb' ) . ' <button class="btn btn-primary new_category"><span class="glyphicon glyphicon-plus"></span>  ' . esc_html__( 'New Category', 'bc_rb' ) . '</button></h2>
-<div class="bg-danger"> ' . esc_html__( 'Note: Please do not use space in the Category Name', 'bc_rb' ) . '</div>
+<div class="bg-danger"> ' . esc_html__( 'Note: Please do not use space in the Category Name, use dash(-) or underscore(_)', 'bc_rb' ) . '</div>
 <div class="col-md-12 category_items" data-payment_info="' . get_option( 'bc_rb_payment_info' ) . '" data-donation_later="' . admin_url( 'admin-ajax.php?action=bc_rb_donation_later&nonce=' . wp_create_nonce( "bc_rb_donation_later" ) ) . '" data-save="' . admin_url( 'admin-ajax.php?action=bc_rb_save_category&nonce=' . wp_create_nonce( "bc_rb_save_category" ) ) . '" data-delete="' . admin_url( 'admin-ajax.php?action=bc_rb_delete_category&nonce=' . wp_create_nonce( "bc_rb_delete_category" ) ) . '">
 
 ' . bc_rb_loop_category( $category ) . '

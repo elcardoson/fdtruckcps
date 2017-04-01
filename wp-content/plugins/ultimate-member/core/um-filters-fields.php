@@ -199,7 +199,7 @@
 
 		if ( ( isset( $data['validate'] ) && $data['validate'] != '' && strstr( $data['validate'], 'url' ) ) || ( isset( $data['type'] ) && $data['type'] == 'url' ) ) {
 			$alt = ( isset( $data['url_text'] ) && !empty( $data['url_text'] ) ) ? $data['url_text'] : $value;
-			$url_rel = ( isset( $data['url_rel'] ) ) ? 'rel="nofollow"' : '';
+			$url_rel = ( isset( $data['url_rel'] ) && $data['url_rel'] == 'nofollow' ) ? 'rel="nofollow"' : '';
 			if( !strstr( $value, 'http' )
 				&& !strstr( $value, '://' )
 				&& !strstr( $value, 'www.' )
@@ -207,14 +207,15 @@
 				&& !strstr( $value, '.net' )
 				&& !strstr( $value, '.org' )
 			) {
-				if ( $data['validate'] == 'soundcloud_url' ) $value = 'https://soundcloud.com/' . $value;
-				if ( $data['validate'] == 'youtube_url' ) $value = 'https://youtube.com/user/' . $value;
-				if ( $data['validate'] == 'facebook_url' ) $value = 'https://facebook.com/' . $value;
-				if ( $data['validate'] == 'twitter_url' ) $value = 'https://twitter.com/' . $value;
-				if ( $data['validate'] == 'linkedin_url' ) $value = 'https://linkedin.com/' . $value;
-				if ( $data['validate'] == 'skype' ) $value = $value;
-				if ( $data['validate'] == 'googleplus_url' ) $value = 'https://plus.google.com/' . $value;
-				if ( $data['validate'] == 'instagram_url' ) $value = 'https://instagram.com/' . $value;
+				if ( $data['validate'] == 'soundcloud_url' ) 	$value = 'https://soundcloud.com/' . $value;
+				if ( $data['validate'] == 'youtube_url' ) 		$value = 'https://youtube.com/user/' . $value;
+				if ( $data['validate'] == 'facebook_url' ) 		$value = 'https://facebook.com/' . $value;
+				if ( $data['validate'] == 'twitter_url' ) 		$value = 'https://twitter.com/' . $value;
+				if ( $data['validate'] == 'linkedin_url' ) 		$value = 'https://linkedin.com/' . $value;
+				if ( $data['validate'] == 'skype' ) 			$value = $value;
+				if ( $data['validate'] == 'googleplus_url' ) 	$value = 'https://plus.google.com/' . $value;
+				if ( $data['validate'] == 'instagram_url' ) 	$value = 'https://instagram.com/' . $value;
+				if ( $data['validate'] == 'vk_url' ) 			$value = 'https://vk.com/' . $value;
 			}
 
 			if ( isset( $data['validate'] ) && $data['validate'] == 'skype' ) {
@@ -426,6 +427,33 @@
 		if( ! empty( $data['custom_dropdown_options_source'] ) ){
 			return $ultimatemember->fields->get_option_value_from_callback( $value, $data, $data['type'] );
 		}
+
+    	return $value;
+    }
+
+    /**
+     * Apply textdomain in select/multi-select options
+     * @param  $value string
+     * @param  $type  string
+     * @param  $data  array
+     * @return $value string
+     * @uses   hook filters: um_profile_field_filter_hook__select, um_profile_field_filter_hook__multiselect
+     */
+    add_filter('um_profile_field_filter_hook__select','um_profile_field__select_translate', 10, 2);
+    add_filter('um_profile_field_filter_hook__multiselect','um_profile_field__select_translate', 10, 2);
+    function um_profile_field__select_translate( $value, $data ){
+
+    	if( empty( $value  ) ) return $value;
+
+    	$options = explode(", ", $value );
+    	$arr_options = array();
+    	if( is_array( $options ) ){
+    		foreach ( $options as $item ) {
+    			$arr_options[] = __( $item, 'ultimatemember' );
+    		}
+    	}
+
+    	$value = implode(", ", $arr_options);
 
     	return $value;
     }

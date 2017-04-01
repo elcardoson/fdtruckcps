@@ -1,5 +1,5 @@
 <?php 
-
+	/*###################### Facebook comments front-end ##################*/	
 class wpdevart_comment_front_end{
 	private $menu_name;
 	
@@ -11,6 +11,8 @@ class wpdevart_comment_front_end{
 	
 	public static $id_for_content=0;
 
+	/*###################### Constract params function ##################*/		
+	
 	function __construct($params){
 		
 		$this->databese_parametrs=$params['databese_parametrs'];
@@ -42,6 +44,9 @@ class wpdevart_comment_front_end{
 		return $front_end_parametrs;
 		
 	}
+	
+	/*###################### Insert comments in content function ##################*/	
+	
 	public function insert_facebook_comment_in_content($content){
 			$jsone_comment_show_in= json_decode(stripslashes($this->params['wpdevart_comments_box_show_in']), true);
 			global $post;
@@ -75,6 +80,7 @@ class wpdevart_comment_front_end{
 			echo '<meta property="fb:app_id" content="'.$this->params['wpdevart_comment_facebook_app_id'].'"/>';
 		
 	}
+	/*###################### Shortcode function ##################*/	
 	public function wpdevart_comment_shortcode($atts){
 		$atts = shortcode_atts( array(
 			"facebook_app_id"					=> $this->params['wpdevart_comment_facebook_app_id'],
@@ -91,6 +97,9 @@ class wpdevart_comment_front_end{
 		), $atts, 'wpdevart_facebook_comment' );
 		return  wpdevart_comment_setting::generete_iframe_by_array($atts);
 	}
+
+    /*############  Generate Js function  ################*/	
+	
 	public function generete_facbook_js_sdk(){
 		?>
         <div id="fb-root"></div>

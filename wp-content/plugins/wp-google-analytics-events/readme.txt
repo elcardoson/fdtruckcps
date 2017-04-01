@@ -2,7 +2,7 @@
 Contributors: yuvalo, claconsay
 Tags: analytics, google, events, ga, google analytics, tracking
 Tested up to: 4.7.1
-Stable tag: 2.4
+Stable tag: 2.4.1
 License: GPLv2
 Requires at least: 3.0
 
@@ -80,6 +80,8 @@ http://www.youtube.com/watch?v=UP8mfuV9huI
 3. Plugin Scroll Settings screenshot-5.png
 2. Google Analytics real time events screenshot-2.png
 == Changelog ==
+= Version 2.4 =
+1. Fix for a permissions problem when clicking the settings button
 = Version 2.4 =
 1. Added tooltips
 2. Buttons for the plugins page

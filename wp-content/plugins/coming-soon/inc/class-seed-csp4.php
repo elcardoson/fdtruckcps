@@ -181,6 +181,7 @@ class SEED_CSP4{
         // Finally check if we should show the coming soon page.
         $this->comingsoon_rendered = true;
 
+
         // set headers
         if($status == '2'){
             header('HTTP/1.1 503 Service Temporarily Unavailable');
@@ -192,6 +193,29 @@ class SEED_CSP4{
                 exit();
             }
         }
+
+        // Prevetn Plugins from caching
+        // Disable caching plugins. This should take care of:
+        //   - W3 Total Cache
+        //   - WP Super Cache
+        //   - ZenCache (Previously QuickCache)
+        if(!defined('DONOTCACHEPAGE')) {
+          define('DONOTCACHEPAGE', true);
+        }
+        if(!defined('DONOTCDN')) {
+          define('DONOTCDN', true);
+        }
+        if(!defined('DONOTCACHEDB')) {
+          define('DONOTCACHEDB', true);
+        }
+        if(!defined('DONOTMINIFY')) {
+          define('DONOTMINIFY', true);
+        }
+        if(!defined('DONOTCACHEOBJECT')) {
+          define('DONOTCACHEOBJECT', true);
+        }
+        header('Cache-Control: max-age=0; private');
+
 
         // render template tags
         if(empty($html)){

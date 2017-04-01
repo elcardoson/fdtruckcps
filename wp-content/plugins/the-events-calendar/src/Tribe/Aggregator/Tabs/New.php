@@ -133,8 +133,8 @@ class Tribe__Events__Aggregator__Tabs__New extends Tribe__Events__Aggregator__Ta
 		/**
 		 * @todo  include a way to handle errors on the Send back URL
 		 */
-		$api      = Tribe__Events__Aggregator__Service::instance()->api();
-		$response = Tribe__Events__Aggregator__Service::instance()->get_facebook_token();
+		$api      = tribe( 'events-aggregator.service' )->api();
+		$response = tribe( 'events-aggregator.service' )->get_facebook_token();
 		$type     = $_GET['ea-fb-token'];
 
 		if ( is_wp_error( $response ) ) {
@@ -435,9 +435,11 @@ class Tribe__Events__Aggregator__Tabs__New extends Tribe__Events__Aggregator__Ta
 		$result = $this->handle_submit();
 
 		if ( is_wp_error( $result ) ) {
-			$result = (object) array(
+			/** @var Tribe__Events__Aggregator__Service $service */
+			$service = tribe( 'events-aggregator.service' );
+			$result  = (object) array(
 				'message_code' => $result->get_error_code(),
-				'message' => $result->get_error_message(),
+				'message'      => $service->get_service_message( $result->get_error_code() ),
 			);
 			wp_send_json_error( $result );
 		}
@@ -483,7 +485,7 @@ class Tribe__Events__Aggregator__Tabs__New extends Tribe__Events__Aggregator__Ta
 			return;
 		}
 
-		if ( Tribe__Events__Aggregator::instance()->is_service_active() ) {
+		if ( tribe( 'events-aggregator.main' )->is_service_active() ) {
 			return;
 		}
 
@@ -499,14 +501,14 @@ class Tribe__Events__Aggregator__Tabs__New extends Tribe__Events__Aggregator__Ta
 
 			<p><?php esc_html_e( 'With Event Aggregator, you can import events from Facebook, iCalendar, Google, and Meetup.com in a jiffy.', 'the-events-calendar' ); ?></p>
 
-			<a href="http://m.tri.be/196y" class="tribe-license-link tribe-button tribe-button-primary" target="_blank">
+			<a href="https://m.tri.be/196y" class="tribe-license-link tribe-button tribe-button-primary" target="_blank">
 				<?php esc_html_e( 'Buy It Now', 'the-events-calendar' );?>
 				<span class="screen-reader-text">
 					<?php esc_html_e( 'opens in a new window', 'the-events-calendar' );?>
 				</span>
 			</a>
 
-			<a href="http://m.tri.be/196z" class="tribe-license-link tribe-button tribe-button-secondary" target="_blank">
+			<a href="https://m.tri.be/196z" class="tribe-license-link tribe-button tribe-button-secondary" target="_blank">
 				<?php esc_html_e( 'Learn More', 'the-events-calendar' ); ?>
 				<span class="screen-reader-text">
 					<?php esc_html_e( 'opens in a new window', 'the-events-calendar' );?>

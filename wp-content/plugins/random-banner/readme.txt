@@ -1,10 +1,10 @@
 === Random Banner ===
 Contributors: vinoth06, buffercode
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7DHAEMST475BY
-Tags: banner, widget, advertisement, ads, banner ads, widget ads, image ads, image widget, ads upload, upload advertisement, upload widget ads, random banner, easy banner, free banner, banners, script ads, random script ads, script banner upload, upload script ads, banner statistics, banner view, banner click, banner campaign, easy campaign banner, script view campaign, campaign, ads campaign
+Tags: banner, widget, advertisement, ads, banner ads, widget ads, image ads, ads upload, upload advertisement, upload widget ads, random banner, easy banner, free banner ads, random script ads, script banner upload, upload script ads, banner campaign, easy campaign banner, campaign, ads campaign
 Requires at least: 4.2
-Tested up to: 4.7
-Stable tag: 3.9.6.1
+Tested up to: 4.7.3
+Stable tag: 3.9.6.99
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,11 @@ Random Banner WordPress plugin provides users with high level of flexibility to 
 * Momentjs
 * Owl
 
+= Demo =
+[Random Banner Demo](http://random-banner.ifecho.com)
+
+= Free Vs Pro =
+[Free vs Pro version Limitations](http://ifecho.com/random-banner-pro#pricing)
 = How to add Shortcode? =
 
 = In PHP =
@@ -69,15 +74,14 @@ Random Banner WordPress plugin provides users with high level of flexibility to 
 * dots = false / true
 
 
-For Pro Version  : [Random Banner Pro Support](http://ifecho.com/random-banner-pro)
+For Pro Version  : [Random Banner Pro Support](https://ifecho.com/random-banner-pro)
 
-For Free Version : [Random Banner Support](https://buffercode.com/project/random-banner/)
 
 == Frequently Asked Questions ==
 
 = For detailed information =
 
-Visit => [Random Banner FAQ](https://ifecho.com/#faq)
+Visit => [Random Banner FAQ](https://ifecho.com/random-banner-pro/#faq)
 
 = Now am using version below 1.3, how to update the plugin? =
 
@@ -134,9 +138,22 @@ Answer: You can add shortcode from version 3.4 onwards,
 5. Add the custom title.
 6. Do save.
 
-For more information : [Random Banner Support](https://buffercode.com/project/random-banner/)
+For more information : [Random Banner Support](https://ifecho.com/random-banner-pro)
 
 == Changelog ==
+
+= v 3.9.6.99 (20170401) =
+
+* Bug Fixed: Randomization not working and no ads to display after deleting the images.
+* Support page added for better connectivity
+
+= v 3.9.6.9 (20170327) =
+
+* Increased the banner upload to 10
+
+= v 3.9.6.5 (20170322) =
+
+* Few bug fixed
 
 = v 3.9.6.1 (20161208) =
 
@@ -256,8 +273,6 @@ For more information : [Random Banner Support](https://buffercode.com/project/ra
 
 = v 1.0 =
 * Public release
-
-For more information : [Random Banner Support](https://buffercode.com/project/random-banner/)
 
 == Screenshots ==
 1. Setting Page

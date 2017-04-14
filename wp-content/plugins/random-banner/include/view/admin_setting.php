@@ -40,8 +40,7 @@ function bc_random_banner_settings() {
 	$get_all_data = bc_rb_get_all_row();
 	echo '<div class="container bc_random_banner" data-display_name="' . bc_rb_get_user_display_name() . '">
 <div class="row">
-  <div class="col-md-10">
-  <div class="pull-right">' . bc_rb_show_payment_details() . '</div>
+  <div class="col-md-7">
   <h1>
   <span>Random Banner</span>
   <div class="btn-group">
@@ -55,18 +54,40 @@ function bc_random_banner_settings() {
 </h1>
 
 </div>
+<div class="col-md-5 p-10">
+	<div class="col-md-5 table-bordered p-10 text-center">
+	' . bc_rb_show_payment_details() . '
+	</div>
+	<div class="col-md-7 bc_plugin_demo" data-email="' . bc_get_current_user_email() . '">
+		<div class="flex table-bordered p-10">
+			<div class="p-r-20">
+				<img src="' . plugins_url( 'assets/images/demo.png', BC_RB_PLUGIN ) . '" />
+			</div>
+			<div class="text-center">
+				<a href="http://random-banner.ifecho.com">
+				<strong>Click Here for</strong><h4>Plugin Demo</h4>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
 </div>
 ' . bc_rb_loader();
 	if ( isset( $_REQUEST['success'] ) ) {
 		bc_rb_on_success_payment( $_REQUEST );
 	}
 
-	echo '<div class="row"><div class="col-md-4 bc_filters hide"><div class="bc_filter_by">Filter By</div><div>
-' . bc_rb_drop_down_category_filter( 'bc_rb_category_names', bc_rb_get_category_by_array(), '', '', 'category_filter' ) . '
-</div></div></div>';
+	echo '<div class="row">
+			<div class="col-md-5 bc_filters hide">
+				<div class="bc_filter_by">Filter By</div>
+			<div>
+			' . bc_rb_drop_down_category_filter( 'bc_rb_category_names', bc_rb_get_category_by_array(), '', '', 'category_filter' ) . '
+			</div>
+			</div>
+		</div>';
 
 
-	echo '<div class="upload_area col-md-12" data-url="' . admin_url( 'admin-ajax.php?action=bc_rb_save_banner&nonce=' . wp_create_nonce( "bc_rb_nonce" ) ) . '" data-delete="' . admin_url( 'admin-ajax.php?action=bc_rb_delete_banner&nonce=' . wp_create_nonce( "bc_rb_nonce_delete" ) ) . '" data-payment_info="' . get_option( 'bc_rb_payment_info' ) . '" data-donation_later="' . admin_url( 'admin-ajax.php?action=bc_rb_donation_later&nonce=' . wp_create_nonce( "bc_rb_donation_later" ) ) . '">';
+	echo '<div class="row"><div class="upload_area col-md-12" data-url="' . admin_url( 'admin-ajax.php?action=bc_rb_save_banner&nonce=' . wp_create_nonce( "bc_rb_nonce" ) ) . '" data-delete="' . admin_url( 'admin-ajax.php?action=bc_rb_delete_banner&nonce=' . wp_create_nonce( "bc_rb_nonce_delete" ) ) . '" data-payment_info="' . get_option( 'bc_rb_payment_info' ) . '" data-donation_later="' . admin_url( 'admin-ajax.php?action=bc_rb_donation_later&nonce=' . wp_create_nonce( "bc_rb_donation_later" ) ) . '">';
 
 	echo loop_data( $get_all_data );
 
@@ -413,9 +434,9 @@ function bc_rb_disable_random_banner( $post ) {
 	<p>
 		<label for="bc_rb_disable_banner"><?php _e( 'Disable Random Banner?', 'bc_rb' ); ?></label>
 		<input type="checkbox"
-		       name="bc_rb_disable_banner"
-		       id="bc_rb_disable_banner"
-		       value="yes" <?php echo $checked; ?> />
+			   name="bc_rb_disable_banner"
+			   id="bc_rb_disable_banner"
+			   value="yes" <?php echo $checked; ?> />
 	</p>
 	<p class="description">
 		<?php _e( 'If you wish to disable random banner on this content, please check this option.', 'bc_rb' ); ?>
@@ -433,8 +454,8 @@ function bc_rb_show_popup() {
 	}
 	if ( $popup['enable_popup'] == 'checked' && $popup['popup_session'] > $_SESSION['popup_show'] ) {
 		$_SESSION['popup_show'] += 1;
-		$bg_color  = 'transparent';
-		$bg_border = 'none';
+		$bg_color               = 'transparent';
+		$bg_border              = 'none';
 
 		echo '<div id="popup" class="bc_rb_hide">
 <div class="bc_rb_popup_container animated">

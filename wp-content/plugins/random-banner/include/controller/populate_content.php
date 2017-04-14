@@ -47,55 +47,64 @@ function loop_data( $rows ) {
 <form>
 <input type="hidden" name="banner_type" value="' . esc_attr( $row->banner_type ) . '" />
 <input type="hidden" name="banner_id" class="form-control banner_id" value="' . $row->id . '"/>
-  <div class="col-md-2">
-    <div class="col-md-12 padding_bottom_20">
+  <div class="col-md-3">
+    <div class="col-md-12 padding_bottom_20 bc_flex_center">
       <div class="no_image" readonly>
         <img width=120 height=120 src=" ' . $row->file_url . ' ">
       </div>
     </div>
+    <div class="col-md-12">
+      <div class="col-md-6">
+      <button class="btn btn-primary form-control bc_rb_button_edit"> <span class="glyphicon glyphicon-edit"></span>
+       ' . esc_html__( 'Edit', 'bc_rb' ) . '</button>
+      </div>
+      <div class="col-md-6">
+      <button class="btn btn-danger form-control bc_rb_button_delete_by_id"> <span 
+      class="glyphicon glyphicon-trash"></span> ' . esc_html__( 'Delete', 'bc_rb' ) . '</button>
+     
+      </div>
+	</div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-9">
     <div class="col-md-6">
+    <label>Upload URL</label>
       <input readonly type="text" name="file_url_link" class="form-control file_url_link" placeholder="Upload Image" value="' . $row->file_url . '"/>
      </div>
      <div class="col-md-6">
+     <label>Description</label>
       <input readonly type="text" name="file_description" class="form-control file_description" placeholder="File Description" value="' . $row->file_description . '"/>
       </div>
       <div class="col-md-12 padding_top_10">
+      <label>External URL</label>
       <input readonly type="text" name="external_link" class="bc_rb_external_link form-control" placeholder="External Link" value="' . $row->external_link . '" />
       </div>
       <div class="col-md-3 padding_top_10">
+      <label>Width</label>
       <div class="input-group">
       <input readonly name="width" type="number" class="form-control width" placeholder="Width in px" value="' . $row->width . '" />
       <span class="input-group-addon" >px</span>
       </div>
       </div>
       <div class="col-md-3 padding_top_10">
+      <label>Height</label>
       <div class="input-group">
       <input readonly name="height" type="number" class="form-control height" placeholder="Height in px" value="' . $row->height . '" />
       <span class="input-group-addon" >px</span>
       </div>
       </div>
       <div class="col-md-3 padding_top_10">
-      <div class="checkbox">
-      <label>
-      <input disabled="disabled"' . $row->automatic . ' class="automatic" type="checkbox" name="automatic" value="checked">  ' . esc_html__( 'Theme Based', 'bc_rb' ) . ' </label>
-      </div>
+      <label>  ' . __( 'Theme Based Size', 'bc_rb' ) . ' </label>
+      <div class="text-center">
+      <input disabled="disabled" ' . $row->automatic . ' class="automatic form-control" type="checkbox" name="automatic" value="checked" />
+       </div>
       </div>
       <div class="col-md-3 padding_top_10">
+      <label>Category</label>
       <div class="input-group">
       <div class="dropdown">
       ' . bc_rb_drop_down( 'category', bc_rb_get_category_by_array(), $row->category, 'disabled', 'category' ) . '
       </div>
       </div>
-      </div>
-      </div>
-      <div class="col-md-2">
-      <div class="col-md-12">
-      <button class="btn btn-primary bc_rb_button_edit"> ' . esc_html__( 'Edit', 'bc_rb' ) . '</button>
-      </div>
-      <div class="col-md-12 padding_top_20">
-      <button class="btn btn-danger bc_rb_button_delete_by_id"> ' . esc_html__( 'Delete', 'bc_rb' ) . '</button>
       </div>
       </div>
       </form>
@@ -340,8 +349,11 @@ function bc_rb_get_unique_banner_from_session( $category ) {
 		$_SESSION['bc_rb_category_session'] = array();
 	}
 
-	$get_all_banner = bc_rb_get_all_banners( $category );
 
+	$get_all_banner = bc_rb_get_all_banners( $category );
+//	var_dump($_SESSION['bc_rb_category_session']);
+//	var_dump(count($_SESSION['bc_rb_category_session']));
+//	var_dump(count($get_all_banner));
 	if ( $get_all_banner ) {
 		if ( count( $_SESSION['bc_rb_category_session'] ) >= count( $get_all_banner ) ) {
 			$_SESSION['bc_rb_category_session'] = array();
@@ -522,8 +534,8 @@ function bc_rb_log_get_all_banner( $category ) {
  */
 function bc_rb_generate_banners( $category, $slider = array() ) {
 	$banner_content = '';
-	$random_number = mt_rand( 11111, 999999 );
-	$options = get_random_banner_option_value();
+	$random_number  = mt_rand( 11111, 999999 );
+	$options        = get_random_banner_option_value();
 	if ( ( isset( $options['disable'] ) && 'checked' == $options['disable'] ) || bc_rb_check_user_logged_in( $options ) ) {
 		return $banner_content;
 	}

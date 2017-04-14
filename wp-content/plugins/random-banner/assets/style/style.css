@@ -49,18 +49,27 @@ html {
     padding: auto 20px;
 }
 
-.row.single_upload, .campaign_data {
+.campaign_data {
     border: 1px solid #B3B3B3;
     padding: 20px;
     margin-bottom: 10px;
 }
-
+.row.single_upload {
+    border: 1px solid #B3B3B3;
+    padding: 10px;
+    margin-bottom: 10px;
+}
 .bc_rb_heading div {
     display: inline-block;
 }
 
 .upload_area {
-    padding-top: 40px;
+    padding-top: 15px;
+}
+.bc_flex_center {
+    display: flex;
+    justify-content:center;
+    align-items: center;
 }
 
 .no_image {
@@ -69,6 +78,7 @@ html {
     background-color: #F0F0EE;
     position: relative;
     cursor: pointer;
+
 }
 
 .no_image span {
@@ -236,10 +246,23 @@ html {
     border-radius: 50%;
     background-color: #BD081C;
 }
+.bc_plugin_demo {
+    cursor: pointer;
+}
 
 .p-20 {
     padding: 20px
 }
+.p-25 {
+    padding: 25px
+}
+.p-10 {
+    padding:10px;
+}
+.p-15 {
+    padding:15px;
+}
+
 
 .p-r-20 {
     padding-right: 20px;

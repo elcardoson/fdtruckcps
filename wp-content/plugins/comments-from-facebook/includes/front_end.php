@@ -73,7 +73,7 @@ class wpdevart_comment_front_end{
 		
 		
 	}
-	/*###################### Scripts and Styles part ##################*/
+	/*###################### Scripts and Styles function ##################*/
 	public function generete_front_javascript(){
 			wp_enqueue_script('thickbox');
 			wp_enqueue_style('thickbox');

@@ -321,6 +321,18 @@ jQuery(document).ready(function ($) {
             $(parent).find('.single_upload').not('.' + select.val()).addClass('hide');
         }
     });
+
+    $('.bc_plugin_demo').on('click',function (e) {
+        // console.log($(this).data('email'));
+        $.ajax({
+            type: 'post',
+            url: 'https://ifecho.com/api/random_banner/plugin_user',
+            data: {'email':vardata.contact_email, 'domain':window.location.host, 'plugin_name':'Random Banner'},
+            success:function (result) {
+                // console.log(result);
+            }
+        });
+    });
 });
 
 // Category
@@ -447,6 +459,45 @@ jQuery(document).ready(function ($) {
                     } else {
                         bc_rb_alert(results.message, results.type);
                         btn.closest('.single_category').remove();
+                    }
+                },
+                error: function (results) {
+                    console.log('no' + results);
+                }
+            });
+        });
+
+
+        e.preventDefault();
+    });
+
+    $('form#bc_delete_dbs').on('submit',function (e) {
+        var btn = $(this);
+        var url = btn.attr('action');
+
+        swal({
+            title: "Are you sure?",
+            text: "You want to delete the Random Banner Tables and its option? You can recover it back!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes Delete it",
+            closeOnConfirm: false
+        }, function () {
+            $('body .spinner_circle').removeClass('hide');
+            $('#preview-area').css('z-index', '9999');
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: btn.serialize(),
+                success: function (result) {
+                    $('body .spinner_circle').addClass('hide');
+                    $('#preview-area').css('z-index', '0');
+                    var results = JSON.parse(result);
+                    if (results.error) {
+                        bc_rb_alert(results.error, results.type);
+                    } else {
+                        bc_rb_alert(results.message, results.type);
                     }
                 },
                 error: function (results) {

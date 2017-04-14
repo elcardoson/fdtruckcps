@@ -5,20 +5,19 @@
  * @package upgrade.
  */
 
-add_action( 'bc_rb_upgrade', 'bc_rb_db_update', 10, 2 );
+add_action( 'bc_rb_upgrade', 'bc_rb_db_update' );
 /**
  * Update
  *
  * @param float $old_version Old Version.
  */
 function bc_rb_db_update( $old_version ) {
-	if ( version_compare( $old_version, '0', '==' ) ) {
-		bc_rb_update_from_old();
-	}
+	bc_rb_update_from_old();
 	version_2_0_to_2_2();
 	version_2_2_greater();
 	version_3_3();
 }
+
 /**
  * Update from version 2.0 to 2.2
  */
@@ -30,6 +29,7 @@ function version_2_0_to_2_2() {
 		$wpdb->query( "ALTER TABLE $bc_random_banner ADD automatic VARCHAR(255) NOT NULL DEFAULT 'checked' AFTER banner_type, ADD width MEDIUMINT(9) NOT NULL  AFTER automatic, ADD height MEDIUMINT(9) NOT NULL AFTER width" );
 	}
 }
+
 /**
  * Update from version above 2.2 to 3.3.
  */
@@ -55,6 +55,7 @@ function version_2_2_greater() {
 
 	bc_rb_add_new_category( $bc_random_banner_category, $post );
 }
+
 /**
  * Update from above 3.3.
  */

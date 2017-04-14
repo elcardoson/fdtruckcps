@@ -116,6 +116,7 @@ ini_set('default_socket_timeout', '5000');
 $GLOBALS['DBCHARSET_DEFAULT'] = 'utf8';
 $GLOBALS['DBCOLLATE_DEFAULT'] = 'utf8_general_ci';
 $GLOBALS['FAQ_URL'] = 'https://snapcreek.com/duplicator/docs/faqs-tech';
+$GLOBALS['NOW_DATE'] = @date("Y-m-d-H:i:s");
 
 //UPDATE TABLE SETTINGS
 $GLOBALS['REPLACE_LIST'] = array();
@@ -170,17 +171,28 @@ if ($_POST['action_step'] == 1 && ! isset($_GET['help'])) {
 @@CLASS.ENGINE.PHP@@
 @@CLASS.CONF.WP.PHP@@
 @@CLASS.CONF.SRV.PHP@@
-<?php if (isset($_POST['action_ajax'])) :?>
-<?php switch ($_POST['action_ajax']): ?>
-<?php case "1": ?>@@CTRL.STEP1.PHP@@<?php break;?>
-<?php case "2": ?>@@CTRL.STEP2.PHP@@<?php break;?>
-<?php case "3": ?>@@CTRL.STEP3.PHP@@<?php break;?>
-<?php endswitch ?>
 <?php
+if (isset($_POST['action_ajax'])) :
+
+	//Alternative control switch structer will not work in this case
+	//see: http://php.net/manual/en/control-structures.alternative-syntax.php
+	//Some clients will create double spaces such as the FTP client which
+	//will break example found online
+	switch ($_POST['action_ajax']) :
+
+		case "1": ?>@@CTRL.STEP1.PHP@@<?php break;
+
+		case "2": ?>@@CTRL.STEP2.PHP@@<?php break;
+
+		case "3": ?>@@CTRL.STEP3.PHP@@<?php break;
+
+	endswitch;
+
     @fclose($GLOBALS["LOG_FILE_HANDLE"]);
     die("");
+
+endif;
 ?>
-<?php endif; ?>
 	
 	
 <!DOCTYPE html>
@@ -202,7 +214,7 @@ HEADER TEMPLATE: Common header on all steps -->
 <table cellspacing="0" class="dupx-header">
     <tr>
         <td style="width:100%;">
-            <div style="font-size:26px; padding:5px 0 5px 0">
+            <div style="font-size:26px; padding:7px 0 7px 0">
                 <!-- !!DO NOT CHANGE/EDIT OR REMOVE PRODUCT NAME!!
                 If your interested in Private Label Rights please contact us at the URL below to discuss
                 customizations to product labeling: http://snapcreek.com	-->
@@ -211,8 +223,9 @@ HEADER TEMPLATE: Common header on all steps -->
         </td>
         <td class="dupx-header-version">
             version: <?php echo $GLOBALS['FW_DUPLICATOR_VERSION'] ?><br/>
-			&raquo; <a href="?help=1" target="_blank">help</a>
 			&raquo; <a href="javascript:void(0)" onclick="DUPX.showServerInfo()">info</a>
+			&raquo; <a href="?help=1" target="_blank">help</a>
+			
         </td>
     </tr>
 </table>	

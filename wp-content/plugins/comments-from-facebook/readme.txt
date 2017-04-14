@@ -3,7 +3,7 @@ Contributors: wpdevart
 Tags: facebook comments, facebook comment, facebook comment notification, facebook comments import, facebook comment system, comments, comment, wordpress comment, wordpress comments, Facebook, facebook badge, facebook connect, facebook group, facebook integration, Facebook like widget, facebook meta, facebook meta tag, Facebook Open Graph, Facebook Page, facebook platform, facebook plugin, post to facebook, Facebook feed, Facebook Stream, social, responsive comments, social comments, comments plugin, facebook comment plugin           
 Requires at least: 2.9
 Tested up to: 4.7.3
-Stable tag: 1.7.1
+Stable tag: 1.7.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 

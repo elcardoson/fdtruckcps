@@ -36,6 +36,9 @@ add_action( 'wp_ajax_noprivbc_rb_save_insert_post', 'bc_rb_save_banner_no_priv' 
 add_action( 'wp_ajax_bc_rb_donation_later', 'bc_rb_donation_later' );
 add_action( 'wp_ajax_nopriv_bc_rb_donation_later', 'bc_rb_save_banner_no_priv' );
 
+add_action( 'wp_ajax_bc_delete_dbs', 'bc_delete_dbs' );
+add_action( 'wp_ajax_nopriv_bc_delete_dbs', 'bc_rb_save_banner_no_priv' );
+
 
 /**
  * Delete Banner by it ID
@@ -141,5 +144,22 @@ function bc_rb_validate() {
 function bc_rb_save_insert_post() {
 	bc_rb_check_nonce( $_REQUEST['nonce'], "bc_rb_save_insert_post" );
 	bc_rb_save_insert_post_model( $_REQUEST );
+}
+
+/**
+ * Delete all DBs and its options
+ */
+
+function bc_delete_dbs() {
+	bc_rb_check_nonce( $_REQUEST['bc_delete_dbs'], "bc_delete_dbs" );
+	uninstall_bc_random_banner_table();
+
+	echo wp_json_encode( array(
+		'status'  => 'ok',
+		'message' => __( 'You have deleted all your Random Banner tables and its options, Please uninstall the plugin now', 'bc_rb' ),
+		'type'    => 'success',
+	) );
+	exit();
+
 }
 

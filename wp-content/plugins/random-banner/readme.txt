@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: banner, widget, advertisement, ads, banner ads, widget ads, image ads, ads upload, upload advertisement, upload widget ads, random banner, easy banner, free banner ads, random script ads, script banner upload, upload script ads, banner campaign, easy campaign banner, campaign, ads campaign
 Requires at least: 4.2
 Tested up to: 4.7.3
-Stable tag: 3.9.6.99
+Stable tag: 3.9.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,7 +93,7 @@ Answer: No problem, Usually you should add the image as banner and it will be av
 
 = What if I would buy? =
 
-Answer: If you would buy, you will get all pro and latest update of random banner. The login details will be send to your after donation
+Answer: If you would buy, you will get all pro and latest update of random banner. The login details will be send to your after Payment
 
 
 = What if I have already bought and get the next version? =
@@ -141,6 +141,13 @@ Answer: You can add shortcode from version 3.4 onwards,
 For more information : [Random Banner Support](https://ifecho.com/random-banner-pro)
 
 == Changelog ==
+
+= v 3.9.7.1 (20170406) =
+
+* Added: Cache functionality added for testing.
+* Added: now user can delete the random banner tables and its associated options in support page.
+* Updated: Adding Banner UI revamped.
+* Bug fixed: some times the tables are not installing properly
 
 = v 3.9.6.99 (20170401) =
 

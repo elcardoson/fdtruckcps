@@ -20,8 +20,6 @@
  * Uninstall DB and Files
  */
 function uninstall_bc_random_banner_table() {
-	/*
-
 	global $wpdb;
 	$bc_random_banner_options = $wpdb->prefix . BC_RB_RANDOM_BANNER_OPTION_DB;
 	$wpdb->query("DROP TABLE IF EXISTS $bc_random_banner_options");
@@ -36,10 +34,9 @@ function uninstall_bc_random_banner_table() {
 	delete_option('bc_random_banner_db_version');
 	delete_option('bc_rb_payment_info');
 
-	*/
 }
 
-register_uninstall_hook( BC_RB_PLUGIN, 'uninstall_bc_random_banner_table' );
+//register_uninstall_hook( BC_RB_PLUGIN, 'uninstall_bc_random_banner_table' );
 
 add_action( 'admin_init', 'bc_rb_upgrade' );
 /**

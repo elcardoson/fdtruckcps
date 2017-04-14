@@ -193,7 +193,7 @@ Also, here is another tutorial(from other source) of creating App Id, you can ch
                                             <p><strong>Curent_url</strong> - Type the page URL from where you need to show Facebook comments </p>
                                             <p><strong>Title_text</strong> - Type here Facebook comments box title</p>
                                             <p><strong>Colorscheme</strong> <span class="pro_feature"> (pro)</span> - Select Facebook comments box color scheme.Can be "light" or "dark".</p>
-                                            <p><strong>Order_type</strong> - Select Facebook comments box order type.The order to use when displaying comments. Can be "social", "reverse_time", or "time". </p>
+                                            <p><strong>Order_type</strong> - Choose Facebook comments box order type.The order to use when displaying comments. Can be "social", "reverse_time", or "time". </p>
                                             <p><strong>Title_text_color</strong> - Select Facebook comments box title text color</p>
                                             <p><strong>Title_text_font_size</strong> - Type Facebook comments box title font-size(px)</p>
                                             <p><strong>Title_text_font_famely</strong> - Select Facebook comments box title font family</p>
@@ -261,7 +261,7 @@ Also, here is another tutorial(from other source) of creating App Id, you can ch
                     </tr>
                      <tr >
                         <td>
-                           Order Type <span title="Choose the Facebook comments order type" class="desription_class">?</span>
+                           Order Type <span title="Choose comments order type" class="desription_class">?</span>
                         </td>
                         <td>
  							<select id="wpdevart_comments_box_order_type">
@@ -273,7 +273,7 @@ Also, here is another tutorial(from other source) of creating App Id, you can ch
                     </tr>
                      <tr >
                         <td>
-                           Title text color <span title="Choose Facebook comments box title text color" class="desription_class">?</span>
+                           Title text color <span title="Select Facebook comments box title text color" class="desription_class">?</span>
                         </td>
                         <td>
                             <input type="text" class="color_option" id="wpdevart_comment_title_text_color" name="wpdevart_comment_title_text_color"  value="<?php echo $page_parametrs['wpdevart_comment_title_text_color'] ?>"/>
@@ -297,7 +297,7 @@ Also, here is another tutorial(from other source) of creating App Id, you can ch
 					</tr>
                     <tr >
                         <td>
-                           Title position <span title="Choose Facebook comments title position" class="desription_class">?</span>
+                           Title position <span title="Select Facebook comments title position" class="desription_class">?</span>
                         </td>
                         <td>
                             <select id="wpdevart_comment_title_text_position">
@@ -342,7 +342,7 @@ Also, here is another tutorial(from other source) of creating App Id, you can ch
 					</tr>
                      <tr>
 						<td>
-							Number of comments <span title="Type here the count of Facebook comments to display" class="desription_class">?</span>
+							Number of comments <span title="Type here the number of Facebook comments to display" class="desription_class">?</span>
 						</td>
 						<td>
 							<input type="text" name="wpdevart_comments_box_count_of_comments" id="wpdevart_comments_box_count_of_comments" value="<?php echo $page_parametrs['wpdevart_comments_box_count_of_comments'] ?>">

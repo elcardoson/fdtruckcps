@@ -37,7 +37,8 @@ function bc_rb_convert_to_html( $string ) {
  * @return string
  */
 function bc_rb_show_payment_details() {
-	return '<div class="paypal_donation_button"><img width="150px" src="' . plugins_url( "/assets/images/paypal.png", BC_RB_PLUGIN ) . '" alt="Buffercode PayPal Donation Button"/></div>';
+	return '<div class="paypal_donation_button"><img width="150px" 
+src="' . plugins_url( "/assets/images/paypal.png", BC_RB_PLUGIN ) . '" alt="Buffercode PayPal Donation Button"/></div>';
 
 }
 
@@ -600,11 +601,20 @@ function bc_rb_currency_lists() {
 /**
  * Show error or success
  */
-function bc_success_error($bool) {
-	$bool = filter_var($bool,FILTER_VALIDATE_BOOLEAN);
+function bc_success_error( $bool ) {
+	$bool = filter_var( $bool, FILTER_VALIDATE_BOOLEAN );
 
-	if($bool){
+	if ( $bool ) {
 		return '<div class="bc_success_circle"></div>';
 	}
+
 	return '<div class="bc_error_circle"></div>';
+}
+
+/**
+ * Get current user email address
+ */
+function bc_get_current_user_email() {
+	$current_user = wp_get_current_user();
+	return $current_user->user_email;
 }

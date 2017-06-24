@@ -25,6 +25,7 @@
 	font-family: serif;
 	/*color: #3AA3D4;*/
 }
+/*Title parameters*/
 .title_parametrs_image{
 	height: 37px;
     float: left;
@@ -195,6 +196,7 @@ button{
 .save_all_section_parametrs.padding_loading{
 	width: 150px !important;
 }
+/*Save section style*/
  .save_section_parametrs{
 	width: 100px;
 	text-align: left;
@@ -203,6 +205,7 @@ button{
 .save_section_parametrs.padding_loading{
 	width: 130px !important;
 }
+/*Saving in progress style*/
 .saving_in_progress{
 	position: relative;
 	display:none;

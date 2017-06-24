@@ -3,7 +3,7 @@
 Plugin Name: WP Google Analytics Events
 Plugin URI: http://wpflow.com
 Description: Adds the Google Analytics code to your website and enables you to send events on scroll or click.
-Version: 2.4.1
+Version: 2.4.3
 Author: Yuval Oren
 Author URI: http://wpflow.com
 License: GPLv2
@@ -61,12 +61,14 @@ function ga_events_install() {
         'universal' => '1',
         'anonymizeip' => '0',
         'advanced' => '0',
-        'divs' => array(array(id => '',type =>'', action => '', cat => '', label => '')),
-        'click' => array(array(id => '',type =>'', action => '', cat => '', label => ''))
+        'divs' => array(array(id => '',type =>'', action => '', cat => '', label => '', interaction => 0, value => '')),
+        'click' => array(array(id => '',type =>'', action => '', cat => '', label => '', interaction => 0, value => ''))
     );
         if (!get_option('ga_events_options')) {
         update_option( 'ga_events_options', $ga_events_options );
         }
+
+    wpgae_reactivate_notice();    
 
 }
 
@@ -81,9 +83,8 @@ add_action('init','ga_events_scripts');
 
 function ga_events_scripts() {
     wp_enqueue_script('jquery');
-    wp_enqueue_script('scrolldepth',plugins_url( '/js/ga-scroll-events.js', __FILE__) , array('jquery'), '2.4.1', false);
+    wp_enqueue_script('scrolldepth',plugins_url( '/js/ga-scroll-events.js', __FILE__) , array('jquery'), '2.4.3', false);
 }
-
 
 add_action( 'plugins_loaded', 'ga_events_setup');
 
@@ -138,9 +139,15 @@ function ga_events_footer() {
     $divs = $options['divs'];
     $click = $options['click'];
     $universal = $options['universal'];
-    if ($universal == ""){
+    $gtm 	= $options['gtm'];
+
+  if ($universal == ""){
         $universal = 0;
     }
+
+  if ($gtm == ""){
+    $gtm = 0;
+  }
     echo "
     <!-- BEGIN: wpflow ga events array -->
     <script>
@@ -148,6 +155,8 @@ function ga_events_footer() {
                 jQuery(document).ready(function() {
                     scroll_events.bind_events( {
                         universal: ".$universal.",
+                        gtm:".$gtm.",
+
                         scroll_elements: [";
                                         $i = 0;
                                         if (is_array($divs)){
@@ -214,7 +223,8 @@ function ga_events_get_selector($element) {
         $selector .= "'category':'".$element[2]."',";
         $selector .= "'action':'".$element[3]."',";
         $selector .= "'label':'".$element[4]."',";
-        $selector .= "'bounce':'".$element[5]."'";
+        $selector .= "'bounce':'".$element[5]."',";
+        $selector .= "'evalue':'".$element[6]."'";
         $selector .= '}';
         return $selector;
     }else{

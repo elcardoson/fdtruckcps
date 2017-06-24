@@ -4,7 +4,7 @@
  * Plugin URI: http://wpdevart.com/wordpress-facebook-comments-plugin/
  * Author URI: http://wpdevart.com
  * Description: Facebook comments plugin will help you to display Facebook Comments box on your website. You can use Facebook Comments on your pages/posts.
- * Version: 1.7.3
+ * Version: 1.8.0
  * Author: wpdevart
  * License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
@@ -69,6 +69,8 @@ class wpdevart_comment_main{
 		$wpdevart_comment_front_end = new wpdevart_comment_front_end(array('menu_name' => 'Wpdevart Comment','databese_parametrs'=>$this->wpdevart_comment_options));
 		
 	}
+
+    /*############  Register Requeried Scripts function  ################*/
 	
 	public function registr_requeried_scripts(){
 		wp_register_script('comment-box-admin-script',$this->wpdevart_comment_plugin_url.'includes/javascript/admin-wpdevart-comment.js');
@@ -76,7 +78,7 @@ class wpdevart_comment_main{
 		
 	}
 	
-	/*###################### Filters function ##################*/
+	/*###################### Call base filters function ##################*/
 	
 	public function call_base_filters(){
 		add_action( 'init',  array($this,'registr_requeried_scripts') );
@@ -85,6 +87,9 @@ class wpdevart_comment_main{
 		add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array($this,'plugin_activate_sublink') );
 		
 	}
+	
+    /*############  Activate Sublink function  ################*/	
+	
 	public function plugin_activate_sublink($links){
 		$plugin_submenu_added_link=array();		
 		 $added_link = array(
@@ -94,6 +99,9 @@ class wpdevart_comment_main{
 		$plugin_submenu_added_link=array_merge( $plugin_submenu_added_link, $links );
 		return $plugin_submenu_added_link;
 	}
+	
+    /*############  Include requeried scripts function  ################*/	
+	
   	public function include_requeried_scripts(){
 		wp_enqueue_script('wp-color-picker');
 		wp_enqueue_style( 'wp-color-picker' );

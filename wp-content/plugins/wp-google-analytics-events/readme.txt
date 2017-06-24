@@ -1,8 +1,8 @@
 === WP Google Analytics Events ===
 Contributors: yuvalo, claconsay
 Tags: analytics, google, events, ga, google analytics, tracking
-Tested up to: 4.7.1
-Stable tag: 2.4.1
+Tested up to: 4.7.5
+Stable tag: 2.4.3
 License: GPLv2
 Requires at least: 3.0
 
@@ -33,37 +33,13 @@ There are many benefits for using events, and you can get very creative:
 4. Understanding what percentage of your visitors got to the end of an article
 5. Tracking contact form submissions
 6. Track Links
+7. Google Tag Manager Support
 
 
 If you want to learn more about Event Tracking or how to use this plugin, visit our documentation page here -
 
 [Plugin Documentation](http://wpflow.com/documentation/ "Documentation")
 
-== FAQ ==
-## Where can I see the events in Google Analytics?
- There are two places that show events in GA -
-
- 1. The real-time dashboard under "events" - An event should show up here in (almost) real-time.
- 2. The full report can be found under "Behavior" -> "Events". Note that it can take up to 24 hours to show up in this section.
-
-## Do I have to write any code to use this plugin?
-Don't be silly. This is why we made this plugin. But on a serious note, this could get a little technical so take a look at our [Plugin Documentation](http://wpflow.com/documentation/ "Documentation") page.
-
-## What are some examples of using events?
-There are many benefits of using events, and you can get very creative:
-
-1. Setting event-driven goals in Google Analytics
-2. Tracking in page navigation
-3. Comparing call to action button performance
-4. Understanding what percentage of your visitors got to the end of an article
-5. Tracking contact form submissions
-6. Track Links
-
-
-## I'm stuck and need support
-You can always use the support tab to open a ticket.
-Please note that while we do our best to answer your questions, we don't check this forum every day.
-If you are looking for more in-depth support, we encourage you to check out [WP Google Analytics Events Pro](http://wpflow.com/upgrade/ "Upgrade to WP Google Analytics Events Pro").
 
 == Installation ==
 Add the plugin by uploading the zip file or by installing it from the Wordpress Plugin directory.
@@ -74,12 +50,52 @@ http://www.youtube.com/watch?v=UP8mfuV9huI
 
 [For more Documentation](http://wpflow.com/documentation/ "Documentation")
 
+== Frequently Asked Questions ==
+
+= What Is Google Analytics Event Tracking? =
+Glad you asked, here is our [Complete Introduction to Event Tracking in Google Analytics](https://wpflow.com/what-is-google-analytics-event-tracking/).
+
+=  Where can I see the events in Google Analytics? =
+ There are two places that show events in GA -
+
+ 1. The real-time dashboard under "events" - An event should show up here in (almost) real-time.
+ 2. The full report can be found under "Behavior" -> "Events". Note that it can take up to 24 hours to show up in this section.
+
+= Do I have to write any code to use this plugin? =
+Don't be silly. This is why we made this plugin. But on a serious note, this could get a little technical so take a look at our [Plugin Documentation](http://wpflow.com/documentation/ "Documentation") page.
+
+= What are some examples of using events? =
+There are many benefits of using events, and you can get very creative:
+
+1. Setting event-driven goals in Google Analytics
+2. Tracking in page navigation
+3. Comparing call to action button performance
+4. Understanding what percentage of your visitors got to the end of an article
+5. Tracking contact form submissions
+6. Track Links
+
+= Can the plugin work along the Google Tag Manager? =
+Yes, our plugin can work with GTM by using the Data Layer.
+Read more about how to set it up in our [Google Tag Manager implementation guide](https://wpflow.com/knowledgebase/google-tag-manager-support/).
+
+= I'm stuck and need support =
+You can always use the support tab to open a ticket.
+Please note that while we do our best to answer your questions, we don't check this forum every day.
+If you are looking for more in-depth support, we encourage you to check out [WP Google Analytics Events Pro](http://wpflow.com/upgrade/ "Upgrade to WP Google Analytics Events Pro").
+
+
 == Screenshots ==
 1. Plugin General Settings screenshot-3.png
 2. Plugin Click Settings screenshot-4.png
 3. Plugin Scroll Settings screenshot-5.png
 2. Google Analytics real time events screenshot-2.png
 == Changelog ==
+
+= Version 2.4.3 =
+1. Google Tag Manager Support
+2. Updated User Interface
+3. Added the Value field to click and scroll events (used to be a Pro feature)
+
 = Version 2.4 =
 1. Fix for a permissions problem when clicking the settings button
 = Version 2.4 =

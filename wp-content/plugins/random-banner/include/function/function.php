@@ -618,3 +618,12 @@ function bc_get_current_user_email() {
 	$current_user = wp_get_current_user();
 	return $current_user->user_email;
 }
+
+/**
+ * Plugin Translation
+ */
+function bc_load_languages() {
+	load_plugin_textdomain('bc_rb', FALSE, dirname(BC_RB_PLUGIN_BASENAME).'/languages/');
+}
+
+add_action( 'plugins_loaded', 'bc_load_languages' );

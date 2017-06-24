@@ -67,26 +67,26 @@ function loop_data( $rows ) {
     </div>
     <div class="col-md-9">
     <div class="col-md-6">
-    <label>Upload URL</label>
+    <label>'.__('Upload URL','bc_rb').'</label>
       <input readonly type="text" name="file_url_link" class="form-control file_url_link" placeholder="Upload Image" value="' . $row->file_url . '"/>
      </div>
      <div class="col-md-6">
-     <label>Description</label>
+     <label>'.__( 'Description','bc_rb').'</label>
       <input readonly type="text" name="file_description" class="form-control file_description" placeholder="File Description" value="' . $row->file_description . '"/>
       </div>
       <div class="col-md-12 padding_top_10">
-      <label>External URL</label>
+      <label>'.__( 'External URL','bc_rb').'</label>
       <input readonly type="text" name="external_link" class="bc_rb_external_link form-control" placeholder="External Link" value="' . $row->external_link . '" />
       </div>
       <div class="col-md-3 padding_top_10">
-      <label>Width</label>
+      <label>'.__( 'Width','bc_rb').'</label>
       <div class="input-group">
       <input readonly name="width" type="number" class="form-control width" placeholder="Width in px" value="' . $row->width . '" />
       <span class="input-group-addon" >px</span>
       </div>
       </div>
       <div class="col-md-3 padding_top_10">
-      <label>Height</label>
+      <label>'.__( 'Height','bc_rb').'</label>
       <div class="input-group">
       <input readonly name="height" type="number" class="form-control height" placeholder="Height in px" value="' . $row->height . '" />
       <span class="input-group-addon" >px</span>
@@ -99,7 +99,7 @@ function loop_data( $rows ) {
        </div>
       </div>
       <div class="col-md-3 padding_top_10">
-      <label>Category</label>
+      <label>'.__( 'Category','bc_rb').'</label>
       <div class="input-group">
       <div class="dropdown">
       ' . bc_rb_drop_down( 'category', bc_rb_get_category_by_array(), $row->category, 'disabled', 'category' ) . '
@@ -226,11 +226,11 @@ function bc_rb_loop_category( $rows ) {
 	foreach ( $rows as $row ) {
 		$content .= '<div class="row single_category padding_top_10">
       <form>
-      <div class="col-md-8">
+      <div class="col-md-6">
       <input type="hidden" name="category_id" value="' . $row->id . '">
       <input type="text" name="category" class="category_input form-control" value="' . $row->category . '" readonly />
       </div>
-      <div class="col-md-4 category_button">';
+      <div class="col-md-6 category_button">';
 		if ( $row->category != 'default' ) {
 			$content .= '<button class="btn btn-primary bc_rb_button_edit"> ' . esc_html__( 'Edit', 'bc_rb' ) . '</button>
       <button class="btn btn-danger bc_rb_button_delete_by_id"> ' . esc_html__( 'Delete', 'bc_rb' ) . '</button>';

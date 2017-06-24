@@ -46,6 +46,10 @@
     display: inline-block;
 }
 
+#ga_main .inner_table .fa{
+    font-size: 20px;
+}
+
 .btn-subscribe {
 
     z-index: 10000;
@@ -301,3 +305,42 @@ a.btn_close_popup img {
     bottom: -20px;
     top: auto;
   }
+
+.wpgae-container__warning{
+    padding: 10px 20px;
+    background-color: #fff;
+}
+
+.wpgae-alert-holder{
+    display: flex;
+    margin-bottom: .8em;
+}
+
+.wpgae-alert{
+    width: 100%;
+    padding: 0 12px;
+    border-left: 4px solid #4b8813;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+@media  screen and (min-width: 1024px){
+
+    #ga_main{
+        width: 70%;
+    }
+
+    #ga_main td{
+        max-width: 100px;
+    }
+    #ga_main .click_table input, 
+    #ga_main .click_table select,
+    #ga_main .divs_table input, 
+    #ga_main .divs_table select{
+        width: 100%;
+    }
+
+    #ga_main input[type="submit"]{
+        width: auto;
+    }
+}

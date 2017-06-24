@@ -244,9 +244,9 @@ jQuery(document).ready(function ($) {
 
 // Popup on PayPal Button Click
 //   if ($('.bc_random_banner').length) {
-    $('.bc_random_banner').on('click', '.paypal_donation_button', function (e) {
-        var display_name = $(this).closest('.bc_random_banner').data('display_name');
-        paypal_donation_popup(display_name.toUpperCase());
+    $('body').on('click', '.paypal_donation_button', function (e) {
+        //var display_name = $(this).closest('.bc_random_banner').data('display_name');
+        paypal_donation_popup(vardata.display_name);
         e.preventDefault();
     });
     // }
@@ -635,7 +635,7 @@ function paypal_donation_popup(display_name) {
         "<input type='hidden' name='bc_rb_paypal_amount' value='30' data-message='Random Banner Pro'>" +
         "</label>" +
         "</div>" +
-        "<button type='reset' name='donate_later' class='donate_later'>Buy Later!</button> <button type='submit' name='donate_now' class='donate_now'>Buy Now $30</button></form>",
+        "<button type='reset' name='donate_later' class='donate_later'>Buy Later!</button> <button type='submit' name='donate_now' class='donate_now'>Click Here to Buy $30</button></form>",
         html: true,
         imageUrl: vardata.plugin_url + "/assets/images/paypal.png",
         showConfirmButton: false,
@@ -659,7 +659,7 @@ function paypal_donation_popup_no_skip(display_name) {
         "<input type='hidden' name='bc_rb_paypal_amount' value='30' data-message='Random Banner Pro'>" +
         "</label>" +
         "</div>" +
-        "<button type='submit' name='donate_now' class='donate_now'>Buy Now $30</button></form>",
+        "<button type='submit' name='donate_now' class='donate_now'>Click Here to Buy $30</button></form>",
         html: true,
         imageUrl: vardata.plugin_url + "/assets/images/paypal.png",
         showConfirmButton: false,

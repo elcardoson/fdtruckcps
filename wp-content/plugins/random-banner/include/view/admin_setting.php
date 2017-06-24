@@ -13,23 +13,23 @@ add_action( 'admin_menu', 'bc_random_banner' );
 function bc_random_banner() {
 	add_menu_page(
 		__( 'Random Banner', 'bc_rb' ),
-		'Random Banner',
+		__( 'Random Banner', 'bc_rb' ),
 		'manage_options',
 		'bc_random_banner',
 		'bc_random_banner_settings',
 		''
 	);
 
-	add_submenu_page( 'bc_random_banner', __( 'Settings', 'bc_rb' ), 'Settings',
+	add_submenu_page( 'bc_random_banner', __( 'Settings', 'bc_rb' ), __( 'Settings', 'bc_rb' ),
 		'manage_options', 'bc_random_banner_option', 'bc_random_banner_option' );
 
-	add_submenu_page( 'bc_random_banner', __( 'Campaign (pro)', 'bc_rb' ), 'Campaign (pro)',
+	add_submenu_page( 'bc_random_banner', __( 'Campaign (pro)', 'bc_rb' ), __( 'Campaign (pro)', 'bc_rb' ),
 		'manage_options', 'bc_random_banner_campaign', 'bc_random_banner_campaign' );
 
-	add_submenu_page( 'bc_random_banner', __( 'Statistics (pro)', 'bc_rb' ), 'Statistics (pro)',
+	add_submenu_page( 'bc_random_banner', __( 'Statistics (pro)', 'bc_rb' ), __( 'Statistics (pro)', 'bc_rb' ),
 		'manage_options', 'bc_random_banner_statistics', 'bc_random_banner_statistics' );
 
-	add_submenu_page( 'bc_random_banner', __( 'Support', 'bc_rb' ), 'Support',
+	add_submenu_page( 'bc_random_banner', __( 'Support', 'bc_rb' ), __( 'Support', 'bc_rb' ),
 		'manage_options', 'bc_random_banner_support', 'bc_random_banner_support' );
 }
 
@@ -42,13 +42,13 @@ function bc_random_banner_settings() {
 <div class="row">
   <div class="col-md-7">
   <h1>
-  <span>Random Banner</span>
+  <span>'.__( 'Random Banner','bc_rb').'</span>
   <div class="btn-group">
-            <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">' . esc_html__( 'Add New Ads', 'rb_bc' ) . ' <span class="caret"></span></button>
+            <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">' . __( 'Add New Ads', 'rb_bc' ) . ' <span class="caret"></span></button>
             <ul class="dropdown-menu">
-                <li class="add_new_upload" data-item="add_new_upload"><a href="#"><span class="glyphicon glyphicon-picture"></span> ' . esc_html__( 'Image Banner', 'rb_bc' ) . ' </a></li>
-                <li class="add_new_script" data-item="add_new_script"><a href="#"><span class="glyphicon glyphicon-align-left"></span> ' . esc_html__( 'Script Banner', 'rb_bc' ) . '</a></li>
-                <li class="paypal_donation_button" data-item="add_new_swf"><a href="#"><span class="glyphicon glyphicon-facetime-video"></span> ' . esc_html__( 'SWF Banner', 'rb_bc' ) . ' </a></li>
+                <li class="add_new_upload" data-item="add_new_upload"><a href="#"><span class="glyphicon glyphicon-picture"></span> ' . __( 'Image Banner', 'rb_bc' ) . ' </a></li>
+                <li class="add_new_script" data-item="add_new_script"><a href="#"><span class="glyphicon glyphicon-align-left"></span> ' . __( 'Script Banner', 'rb_bc' ) . '</a></li>
+                <li class="paypal_donation_button" data-item="add_new_swf"><a href="#"><span class="glyphicon glyphicon-facetime-video"></span> ' . __( 'SWF Banner', 'rb_bc' ) . ' </a></li>
             </ul>
         </div>
 </h1>
@@ -79,7 +79,7 @@ function bc_random_banner_settings() {
 
 	echo '<div class="row">
 			<div class="col-md-5 bc_filters hide">
-				<div class="bc_filter_by">Filter By</div>
+				<div class="bc_filter_by">'.__( 'Filter By','bc_rb').'</div>
 			<div>
 			' . bc_rb_drop_down_category_filter( 'bc_rb_category_names', bc_rb_get_category_by_array(), '', '', 'category_filter' ) . '
 			</div>

@@ -11,6 +11,54 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+
+function whatsnew_admin_notice__success() {
+    
+    global $current_user;
+    $user_id = $current_user->ID;
+    $was_ignored = get_user_meta($user_id, 'wpgae_whatsnew_ignore_notice', true);
+    /* Check that the user hasn't already clicked to ignore the message */
+    if (! $was_ignored ) {
+        echo '<div class="notice notice-success"><p>';
+        printf(__('Learn about what\'s new in <strong><a href="%s">WP Google Analytics Events</a></strong>'), 'admin.php?page=wp-google-analytics-events-whatsnew&wpgae_whatsnew_notify=1');
+
+        $active_page = isset( $_GET[ 'page' ] ) ? '&page='.esc_html( $_GET[ 'page' ] ): '';
+        printf(__('<a href="%s" style="float:right;">Close</a>'), '?wpgae_whatsnew_notify=1'.$active_page);
+
+        
+        echo "</p></div>";
+    }   
+}
+add_action( 'admin_notices', 'whatsnew_admin_notice__success' );
+
+function wpgae_whatsnew_notify() {
+    global $current_user;
+        $user_id = $current_user->ID;
+        /* If user clicks to ignore the notice, add that to their user meta */
+        if ( isset($_GET['wpgae_whatsnew_notify']) && '1' == $_GET['wpgae_whatsnew_notify'] ) {
+             update_user_meta($user_id, 'wpgae_whatsnew_ignore_notice', true);
+    }
+}
+add_action('admin_init', 'wpgae_whatsnew_notify');
+
+
+/*
+   Upon plugin activation, reset 'wpgae_whatsnew_ignore_notice' for all admin users.
+ * This functions was called inside ga_events_install funtion.   
+ */
+function wpgae_reactivate_notice(){
+
+    $args = array(
+        'role' => 'administrator'
+    );
+    
+    $admins = get_users($args);
+    
+    foreach ($admins as $user) {
+        update_user_meta($user->ID, 'wpgae_whatsnew_ignore_notice', false);
+    }
+}
+
 if ( ! function_exists( 'ga_events_review_notice' ) ) {
     // Add an admin notice.
     add_action( 'admin_notices', 'ga_events_review_notice' );

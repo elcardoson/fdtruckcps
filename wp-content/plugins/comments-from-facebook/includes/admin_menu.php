@@ -86,7 +86,6 @@ class wpdevart_comment_admin_menu{
 
 	/*############################ Posts/Pages insert button shortcode part ###################################*/
 
-	
 	public function create_menu(){
 		$main_page 	 	  = add_menu_page( $this->menu_name, $this->menu_name, 'manage_options', str_replace( ' ', '-', $this->menu_name), array($this, 'main_menu_function'),$this->plugin_url.'images/facebook_menu_icon.png');
 		$page_wpdevart_comment	  =	add_submenu_page($this->menu_name,  $this->menu_name,  $this->menu_name, 'manage_options', str_replace( ' ', '-', $this->menu_name), array($this, 'main_menu_function'));
@@ -117,7 +116,9 @@ class wpdevart_comment_admin_menu{
 		return NULL;
 		
 	}
+	
 	/*###################### Database function ##################*/	
+	
 	public function save_in_databese(){
 		$kk=1;	
 		if(isset($_POST['wpdevart_comment_options_nonce']) && wp_verify_nonce( $_POST['wpdevart_comment_options_nonce'],'wpdevart_comment_options_nonce')){
@@ -179,8 +180,8 @@ class wpdevart_comment_admin_menu{
                                             <p>Here's the short user manual that should help you to insert Facebook Comments Box into your website.</p>
                                            <p style="font-weight:bolder"><span style="color:red">APP ID</span> - you can create your App Id on this page - <a style="color:#0073aa" target="_blank" href="https://developers.facebook.com/apps">https://developers.facebook.com/apps.</a>
 Also, here is another tutorial(from other source) of creating App Id, you can check it - <a style="color:#0073aa" target="_blank" href="https://help.yahoo.com/kb/SLN18861.html">https://help.yahoo.com/kb/SLN18861.html</a>.</p>
-                                            <p>If you select the option "Display comments on"  Home, Post, Page  then Facebook Comments box will be added on every page/post of your website. </p> 
-                                            <p>Also, you can insert the Facebook Comments box manually in any page, post or even in Php code using plugin shortcode. You can disable comments on single pages or posts as well.</p>
+                                            <p>If you select the option "Display comments on" - Home, Post, Page, then the Facebook Comments box will be added on every page/post of your website. </p> 
+                                            <p>Also, you can insert the Facebook Comments box manually in any page/post or even in Php code using plugin shortcode. You can disable comments on single pages or posts as well by disabling it(find the otion below posts/pages).</p>
                                             
                                             <p><strong>Here's an example of using the Facebook comments shortcode in posts, pages:</strong></p>
                                             <p><code>[wpdevart_facebook_comment curent_url="http://developers.facebook.com/docs/plugins/comments/" title_text="Facebook Comment" order_type="social" title_text_color="#000000" title_text_font_size="22" title_text_font_famely="monospace" title_text_position="left" width="100%" bg_color="#d4d4d4" animation_effect="random"  count_of_comments="2" ]</code></p>
@@ -218,6 +219,7 @@ Also, here is another tutorial(from other source) of creating App Id, you can ch
 	
 	
 	/*#########################  Facebook Comments Box main settings #################################*/
+	
 	public function generete_wpdevart_main_section($page_parametrs){
 
 		?>
@@ -342,7 +344,7 @@ Also, here is another tutorial(from other source) of creating App Id, you can ch
 					</tr>
                      <tr>
 						<td>
-							Number of comments <span title="Type here the number of Facebook comments to display" class="desription_class">?</span>
+							Number of comments <span title="Type here the number of Facebook comments to show" class="desription_class">?</span>
 						</td>
 						<td>
 							<input type="text" name="wpdevart_comments_box_count_of_comments" id="wpdevart_comments_box_count_of_comments" value="<?php echo $page_parametrs['wpdevart_comments_box_count_of_comments'] ?>">
@@ -369,7 +371,7 @@ Also, here is another tutorial(from other source) of creating App Id, you can ch
                 
                      <tr>
 						<td>
-							Default language <span title="Type here Facebook comments language code(en_US,de_DE...)" class="desription_class">?</span>
+							Default language <span title="Type here Facebook comments default language code(en_US,de_DE...)" class="desription_class">?</span>
 						</td>
 						<td>
 							<input type="text" name="wpdevart_comments_box_locale"   id="wpdevart_comments_box_locale" value="<?php echo $page_parametrs['wpdevart_comments_box_locale'] ?>">(en_US,de_DE...)
@@ -451,7 +453,13 @@ Also, here is another tutorial(from other source) of creating App Id, you can ch
 						'site_url'		=>	'http://wpdevart.com/wordpress-facebook-comments-plugin/',
 						'title'			=>	'WordPress Facebook comments',
 						'description'	=>	'Our Facebook comments plugin will help you to display Facebook Comments on your website. You can use Facebook Comments on your pages/posts.'
-						),							
+						),
+			'scroll'=>array(
+						'image_url'		=>	$this->plugin_url.'images/featured_plugins/Scroll.png',
+						'site_url'		=>	'https://wordpress.org/plugins/wp-scroll-2',
+						'title'			=>	'Scroll To Top',
+						'description'	=>	'Scroll to top plugin is an simple and nice plugin with the standard scroll settings. You can use it on your website different sides.'
+						),						
 			
 		);
 		?>
@@ -528,6 +536,7 @@ Also, here is another tutorial(from other source) of creating App Id, you can ch
             </div>
             <?php } 
 	}
+	
 	/*######################################### Fonts Function #######################################*/
 
 	private function create_select_element_for_font($select_id='',$curent_font='none'){

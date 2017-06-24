@@ -1,21 +1,21 @@
 <?php
 /**
  * Plugin Name: Random Banner
- * Plugin URI: http://ifecho.com/random-banner-pro
+ * Plugin URI: https://ifecho.com/random-banner-pro
  * Description: Random Banner WordPress plugin provides users with high level of flexibility to show image banner and script ads randomly on Widgets
- * Version: 3.9.7.1
+ * Version: 3.9.7.4
  * Author: vinoth06
  * Author URI: http://buffercode.com/
  * License: GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: bc_rb
+ * Domain Path: /languages/
  */
-
 
 /**
  * Version Number
  */
-define( 'BC_RB_PLUGIN_VERSION', '3.9.7.1' );
+define( 'BC_RB_PLUGIN_VERSION', '3.9.7.4' );
 /**
  * Random Banner DB Name
  */

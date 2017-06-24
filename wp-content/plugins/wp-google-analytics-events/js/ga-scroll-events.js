@@ -1,5 +1,5 @@
 /*!
- * WP Googel Analytics Events | v2.4.1
+ * WP Googel Analytics Events | v2.4.3
  * Copyright (c) 2013 Yuval Oren (@yuvalo)
  * License: GPLv2
  */
@@ -13,13 +13,15 @@ var scroll_events = (function ($) {
     var scroll_elements  = [];
     var click_elements = [];
     var universal = 0;
-        var ga_element;
+    var gtm = 0;
+    var ga_element;
 
-    var track_event = function (category, action, label, universal, bounce ){
+    var track_event = function (category, action, label, universal, bounce, evalue ){
         var event_category = !category ? '' : category;
         var event_action = !action ? '' : action;
         var event_label = !label ? '' : label;
         var event_bounce = !bounce ? false : bounce;
+        var event_value = !evalue ? false : evalue;
 
         if( typeof ga_element === "undefined" ){
            if( typeof ga !== 'undefined' ){
@@ -30,24 +32,40 @@ var scroll_events = (function ($) {
             } 
             else if( typeof __gaTracker === "function" ){
                 ga_element = __gaTracker;
-            }
+            } else if (!gtm){
+               return;
+           }
         }
-               
-       if( universal ){
+
+        if (gtm) {
+            dataLayer.push({
+                'event' : 'WPGAE',
+                'eventCategory' : category,
+                'eventAction' : action,
+                'eventLabel' : label,
+                'eventValue' : event_value,
+                'nonInteraction': event_bounce
+            });
+        } else if( universal ){
             // ga_element('send','event', category, action, label);
-            ga_element('send','event', category, action, label, {'nonInteraction': event_bounce});
+            if (event_value) {
+                ga_element('send','event', category, action, label, event_value,{'nonInteraction': event_bounce});
+            }else{
+                ga_element('send','event', category, action, label, {'nonInteraction': event_bounce});
+            }
+            
 
         }
         else {
             // ga_element.push(['_trackEvent',category, action, label]);
-            ga_element.push( ['_trackEvent',category, action, label, '', event_bounce] );
+            ga_element.push( ['_trackEvent',category, action, label, event_value, event_bounce] );
         }
 
     };
 
     var click_event = function( event ){
       
-        track_event(event.data.category, event.data.action, event.data.label, event.data.universal, event.data.bounce);
+        track_event(event.data.category, event.data.action, event.data.label, event.data.universal, event.data.bounce, event.data.evalue);
         var hasHref = event.currentTarget.href;
         if (hasHref && hasHref !== "") {
             event.preventDefault();
@@ -62,14 +80,52 @@ var scroll_events = (function ($) {
         }
     };
 
+    var unescapeChars = function (text) {
+
+        var map = {
+            '&amp;': '&',
+            '&lt;': '<',
+            '&gt;': '>',
+            '&quot;': '"',
+            '\"': '"',
+            '&#039;': "'"
+        };        
+
+        if (typeof text != 'string') {
+
+            var cleanObj;
+
+            // if param text is non-string (assuming JSON object), we convert it first to string
+            cleanObj = JSON.stringify(text);
+
+            // we replace other chars
+            cleanObj.replace(/&lt;|&gt;|&quot;|'&#039;/gi, function (m) {
+                        return map[m];
+                    });
+
+            // convert it back to JSON obj
+            cleanObj = JSON.parse(cleanObj);
+            return cleanObj;
+        }else{
+            return text.replace(/&lt;|&gt;|&quot;|'&#039;/gi, function (m) {
+                        return map[m];
+                    });
+        }
+        
+        return ''; //fallback
+    };
+
+
     return {
         bind_events : function (settings) {
             scroll_elements = settings.scroll_elements;
             click_elements = settings.click_elements;
             universal = settings.universal;
+            gtm = settings.gtm;
+
             var i;
             for (i = 0; i < click_elements.length; i++) {
-                var clicked = click_elements[i];
+                var clicked = unescapeChars(click_elements[i]);
                 clicked.universal = universal;
                 $(clicked.select).on('click', clicked, click_event);
             }
@@ -82,9 +138,9 @@ var scroll_events = (function ($) {
                 var i;
                 for (i = 0; i < scroll_elements.length; i++) {
                     if (!scroll_elements[i].sent) {
-                        scroll_elements[i].offset =  $(scroll_elements[i].select).offset();
+                        scroll_elements[i].offset =  $( unescapeChars( scroll_elements[i].select) ).offset();
                         if (scroll_elements[i].offset && ga_scroll_top + ga_window >= scroll_elements[i].offset.top + $(scroll_elements[i].select).height()) {
-                            track_event(scroll_elements[i].category, scroll_elements[i].action, scroll_elements[i].label, universal, scroll_elements[i].bounce);
+                            track_event(scroll_elements[i].category, scroll_elements[i].action, scroll_elements[i].label, universal, scroll_elements[i].bounce, scroll_elements[i].evalue);
                             scroll_elements[i].sent = true;
                         }
                     }

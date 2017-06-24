@@ -22,17 +22,17 @@
 function uninstall_bc_random_banner_table() {
 	global $wpdb;
 	$bc_random_banner_options = $wpdb->prefix . BC_RB_RANDOM_BANNER_OPTION_DB;
-	$wpdb->query("DROP TABLE IF EXISTS $bc_random_banner_options");
+	$wpdb->query( "DROP TABLE IF EXISTS $bc_random_banner_options" );
 
 	$bc_random_banner = $wpdb->prefix . BC_RB_RANDOM_BANNER_DB;
-	$wpdb->query("DROP TABLE IF EXISTS $bc_random_banner");
+	$wpdb->query( "DROP TABLE IF EXISTS $bc_random_banner" );
 
-	  $bc_random_banner_category = $wpdb->prefix . BC_RB_RANDOM_BANNER_CATEGORY;
-	$wpdb->query("DROP TABLE IF EXISTS $bc_random_banner_category");
+	$bc_random_banner_category = $wpdb->prefix . BC_RB_RANDOM_BANNER_CATEGORY;
+	$wpdb->query( "DROP TABLE IF EXISTS $bc_random_banner_category" );
 
 
-	delete_option('bc_random_banner_db_version');
-	delete_option('bc_rb_payment_info');
+	delete_option( 'bc_random_banner_db_version' );
+	delete_option( 'bc_rb_payment_info' );
 
 }
 
@@ -179,13 +179,15 @@ function bc_rb_enqueue_script() {
 	$current_user = wp_get_current_user();
 	// Pass PHP value to JavaScript
 	$translation_array = array(
-		'plugin_url'    => plugins_url( BC_RB_PLUGIN_NAME ),
-		'payment_info'  => get_option( 'bc_rb_payment_info' ),
-		'category'      => bc_rb_get_category_by_array_js(),
-		'contact_email' => $current_user->user_email,
-		'bc_redirect_url' => admin_url('admin.php?page=bc_random_banner_support'),
+		'plugin_url'      => plugins_url( BC_RB_PLUGIN_NAME ),
+		'payment_info'    => get_option( 'bc_rb_payment_info' ),
+		'category'        => bc_rb_get_category_by_array_js(),
+		'contact_email'   => $current_user->user_email,
+		'display_name'    => strtoupper( $current_user->display_name ),
+		'bc_redirect_url' => admin_url( 'admin.php?page=bc_random_banner_support' ),
 	);
 	wp_localize_script( 'bc_rb_script', 'vardata', $translation_array );
+	wp_localize_script( 'sweetalert', 'sweet_data', array( 'ads_image' => plugins_url( BC_RB_PLUGIN_NAME . '/assets/images/banner-plugin.jpg' ) ) );
 
 	wp_enqueue_media();
 	do_action( 'bc_rb_enqueue_script' );

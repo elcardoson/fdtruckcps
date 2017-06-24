@@ -3,8 +3,8 @@ Contributors: vinoth06, buffercode
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7DHAEMST475BY
 Tags: banner, widget, advertisement, ads, banner ads, widget ads, image ads, ads upload, upload advertisement, upload widget ads, random banner, easy banner, free banner ads, random script ads, script banner upload, upload script ads, banner campaign, easy campaign banner, campaign, ads campaign
 Requires at least: 4.2
-Tested up to: 4.7.3
-Stable tag: 3.9.7.1
+Tested up to: 4.8
+Stable tag: 3.9.7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -141,6 +141,22 @@ Answer: You can add shortcode from version 3.4 onwards,
 For more information : [Random Banner Support](https://ifecho.com/random-banner-pro)
 
 == Changelog ==
+
+= v 3.9.7.4 (20170611) =
+
+* Translation updated ( new pot file generated ).
+
+* Minor bug fixed.
+
+* Supports WordPress 4.8
+
+= v 3.9.7.3 (20170509) =
+
+* Translation bug fixed. - Thanks for the translation file by @welmar
+
+= v 3.9.7.2 (20170508) =
+
+* Translation function added.
 
 = v 3.9.7.1 (20170406) =
 
